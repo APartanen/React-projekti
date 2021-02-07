@@ -1,11 +1,11 @@
 import React from 'react'
-import '../Header.css';
+import './Header.css';
 
 function Header() {
   return (
-    <div>
+    <div className ="Header">
       <h1>Työharjoittelun perehdytysopas</h1>
-        <div className="Title-Subtitle">Testiteksti, jos haluaa tällaisen</div>
+        <div className="Header-Subtitle">Testiteksti, jos haluaa tällaisen</div>
     </div>
   )
 }
