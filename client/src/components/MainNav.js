@@ -7,12 +7,12 @@ class MainNav extends React.Component {
     return (
 
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-        <Navbar.Brand href="#home">Etusivu</Navbar.Brand>
+        <Navbar.Brand href="/">Etusivu</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="#asiakkaat">Asiakkaamme rekrytoivat</Nav.Link>
-            <Nav.Link href="#lomakeinfo">Suunnittele rekrytointi ja jätä ilmoitus</Nav.Link>
+            <Nav.Link href="lomakeinfo">Suunnittele rekrytointi ja jätä ilmoitus</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
