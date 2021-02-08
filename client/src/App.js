@@ -6,7 +6,11 @@ import Etusivu from "./components/pages/Etusivu";
 import Lomakesivu from "./components/pages/Lomakesivu";
 import Rekrysivu from "./components/pages/Rekrysivu";
 
+
 function App() {
+
+
+
   return (
     <div className="App">
       <Router>
@@ -17,7 +21,7 @@ function App() {
           <Route path="/asiakkaat" component={Rekrysivu} />
           <Route path="/lomakeinfo" component={Lomakesivu} />
         </Switch>
-      </Router>
+      </Router> 
     </div>
   );
 }
