@@ -6,13 +6,11 @@ const Otsikko = (props) => {
 
 const otsikko = props.otsikko
 
-return ( 
+return (
 
 <div>
- <h1>{otsikko}</h1>
-
+ <h2>{otsikko}</h2>
 </div>
-
 
 )
 }
