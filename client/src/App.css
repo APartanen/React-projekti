@@ -1,0 +1,59 @@
+/* Ne tyylimäärittelyt, mitkä ei tule valmiina bootstrapista yms. */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+  font-family:'Poppins' !important;
+}
+
+h1 {
+  color: #006b38;
+  line-height: 1.5;
+  margin-top: 0.5em;
+  font-weight:bolder;
+  font-size:2.2rem;
+}
+
+h2 {
+  font-weight: bold;
+  font-size:1.8rem;
+}
+
+a {
+  color: #019e89 !important;
+  font-weight: bolder !important;
+}
+
+a:hover {
+  color: #67c04d !important;
+}
+
+.mainnav{
+  border-bottom: 2px solid #d9edbc !important;
+}
+
+.Header, .Footer {
+  background-color: #d9edbc;
+  color: #006b38;
+}
+
+.Header{
+  background-image:url('header.png');
+  background-size:300px;
+  background-position: bottom left;
+  background-repeat:no-repeat;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  justify-content: center;
+  align-items: baseline;
+  padding: 2em;
+  line-height: 3;
+}
+
+.Footer{
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0.5em;
+}
