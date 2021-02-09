@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Etusivu from "./components/pages/Etusivu";
 import Lomakesivu from "./components/pages/Lomakesivu";
 import Rekrysivu from "./components/pages/Rekrysivu";
+import Footer from "./components/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
           <Route path="/asiakkaat" component={Rekrysivu} />
           <Route path="/lomakeinfo" component={Lomakesivu} />
         </Switch>
+        <Footer />
       </Router> 
     </div>
   );
