@@ -14,7 +14,7 @@ class Lomakesivu extends React.Component {
             <div className="align-middle">
                 <h1>Lomakesivu</h1>
                 <Tabs defaultActiveKey="placeholder" id="tabit">
-                <Tab eventKey="placeholder" title="Placeholder">
+                <Tab eventKey="perustiedot" title="Perustiedot">
                     <Lomake/>
                 </Tab>
                 <Tab eventKey="viimeistely" title="Viimeistely">

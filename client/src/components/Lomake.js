@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Row, Form, Button } from "react-bootstrap";
+import { Col, Row, Form, Button, Container } from "react-bootstrap";
 
 const styles = {
   grid: {
@@ -21,16 +21,80 @@ const styles = {
 function Lomake() {
   return (
     <div className="mx-auto my-2">
-      <h1>Lomake (placeholder)</h1>
+      <h2>Perustiedot yrityksestä</h2>
       <Form style={styles.row}>
-  <Form.Group controlId="exampleForm.ControlInput1">
-    <Form.Label>Sähköposti</Form.Label>
-    <Form.Control type="email" placeholder="name@example.com" />
+     
+    <Col xs="5">
+    <Form.Group controlId="YrityksenNimi">
+      <Form.Label>Yrityksen nimi</Form.Label>
+      <Form.Control type="yrityksennimi" placeholder="Yrityksen nimi" />
+      <Form.Text className ="text-muted">
+      Tämä tieto näkyy ilmoituksessa.
+      </Form.Text>
+    </Form.Group>
+    </Col>
+
+  <Col xs="5">
+  <Form.Group controlId="YrityksenOsoite">
+    <Form.Label>Katuosoite</Form.Label>
+    <Form.Control placeholder="Missä yrityksesi sijaitsee?" />
+    <Form.Text className ="text-muted">
+      Tämä tieto näkyy ilmoituksessa.
+      </Form.Text>
   </Form.Group>
-  <Form.Group controlId="exampleForm.ControlTextarea1">
-    <Form.Label>Tekstialue</Form.Label>
-    <Form.Control as="textarea" rows={3} />
-  </Form.Group>
+  </Col>
+
+
+  <Form.Row>
+  <Col xs="auto">
+    <Form.Group controlId="Postitoimipaikka">
+      <Form.Label>Postitoimipaikka</Form.Label>
+      <Form.Control />
+      <Form.Text className ="text-muted">
+      Tämä tieto näkyy ilmoituksessa.
+      </Form.Text>
+    
+    </Form.Group>
+
+    <Form.Group controlId="Postinumero">
+      <Form.Label>Postinumero</Form.Label>
+      <Form.Control />
+      <Form.Text className ="text-muted">
+      Tämä tieto näkyy ilmoituksessa.
+      </Form.Text>
+    </Form.Group>
+    </Col>
+
+    <Col xs="4">
+<Form.Row controlId="Kuvaus">
+<Form.Label>Yrityksen kuvaus</Form.Label>
+<Form.Control as="textarea" rows={6} />
+<Form.Text className ="text-muted">
+      Tämä tieto näkyy ilmoituksessa.
+    </Form.Text>
+</Form.Row>
+</Col>
+  </Form.Row>
+
+
+  <Form.Row>
+  <Col xs="4">
+  <Form.Label>Yrityksen Logo</Form.Label>
+  <Form.File 
+    id="logo"
+    label="Valitse yrityksen logo..."
+    custom
+  />
+
+  </Col>
+  </Form.Row>
+
+  <Form.Group>
+  <Button variant="primary" size="lg" active>
+    ETEENPÄIN!
+  </Button>{' '}
+ </Form.Group>
+
 </Form>
     </div>
   )
