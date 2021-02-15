@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from 'react-bootstrap/Form';
 import Lomake from '../Lomake';
+import Lomake5 from '../Lomake5';
 import Lomake6 from '../Lomake6';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
@@ -16,6 +17,9 @@ class Lomakesivu extends React.Component {
                 <Tabs defaultActiveKey="placeholder" id="tabit">
                 <Tab eventKey="perustiedot" title="Perustiedot">
                     <Lomake/>
+                </Tab>
+                <Tab eventKey="valintamenettely" title="Käytettävä valintamenettely">
+                    <Lomake5/>
                 </Tab>
                 <Tab eventKey="viimeistely" title="Viimeistely">
                     <Lomake6/>
