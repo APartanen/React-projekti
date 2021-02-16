@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import Lomake from "../Lomake";
+import Lomake4 from "../Lomake4";
 import Lomake5 from "../Lomake5";
 import Lomake6 from "../Lomake6";
 import Tabs from "react-bootstrap/Tabs";
@@ -24,7 +25,9 @@ class Lomakesivu extends React.Component {
           <Tab eventKey="viimeistely" title="Viimeistely">
             <Lomake6 />
           </Tab>
-
+          <Tab eventKey="sivu4" title="Lomake 4">
+            <Lomake4 />
+          </Tab>
           <Tab eventKey="Lomake7" title="Lomake7">
             <Lomake7 />
           </Tab>
