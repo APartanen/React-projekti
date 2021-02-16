@@ -1,6 +1,5 @@
 import React, { Component, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import { Link } from "react-router-dom";
 import "./Lomake2.css";
 import { Form, Dropdown } from "react-bootstrap";

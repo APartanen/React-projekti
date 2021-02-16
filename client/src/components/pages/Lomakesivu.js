@@ -9,6 +9,7 @@ import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Lomake7 from "../Lomake7";
 import Lomake2 from "../Lomake2";
+import Lomake3 from "../Lomake3";
 
 // todo tyylittely
 class Lomakesivu extends React.Component {
@@ -25,6 +26,9 @@ class Lomakesivu extends React.Component {
           </Tab>
           <Tab eventKey="viimeistely" title="Viimeistely">
             <Lomake6 />
+          </Tab>
+          <Tab eventKey="sivu3" title="Lomake 3">
+            <Lomake3 />
           </Tab>
           <Tab eventKey="sivu4" title="Lomake 4">
             <Lomake4 />
