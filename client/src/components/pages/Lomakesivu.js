@@ -9,6 +9,7 @@ import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Lomake7 from "../Lomake7";
 import Lomake2 from "../Lomake2";
+
 // todo tyylittely
 class Lomakesivu extends React.Component {
   render() {

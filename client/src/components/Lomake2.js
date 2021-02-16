@@ -4,8 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import "./Lomake2.css";
 import { Form, Dropdown } from "react-bootstrap";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 export default function Lomake2() {
   const [selectedDate1, setSelectedDate1] = useState(null);
@@ -72,33 +70,12 @@ export default function Lomake2() {
 
         <div className="date">
           <div>
-            <label>Työ alkaa</label>
-            <br></br>
-            <DatePicker
-              id="juu"
-              selected={selectedDate1}
-              onChange={(date) => setSelectedDate1(date)}
-              placeholderText={"dd/mm/yyyy"}
-              // minDate={new Date()}
-              // maxDate={new Date()}
-              filterDate={(date) => date.getDay() !== 6 && date.getDay() !== 0}
-              showYearDropdown
-              scrollableYearDropdown
-            />
+            <Form.Label>Työ alkaa</Form.Label>
+            <Form.Control type="date" name="pvm" />
           </div>
           <div>
-            <label>Työ päättyy</label>
-            <br></br>
-            <DatePicker
-              selected={selectedDate2}
-              onChange={(date) => setSelectedDate2(date)}
-              placeholderText={"dd/mm/yyyy"}
-              // minDate={new Date()}
-              // maxDate={new Date()}
-              filterDate={(date) => date.getDay() !== 6 && date.getDay() !== 0}
-              showYearDropdown
-              scrollableYearDropdown
-            />
+            <Form.Label>Työ päättyy</Form.Label>
+            <Form.Control type="date" name="pvm" />
           </div>
         </div>
         <form className="tunnit1">
