@@ -1,15 +1,17 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Form from "react-bootstrap/Form";
+
 import Lomake from "../Lomake";
+import Lomake2 from "../Lomake2";
+import Lomake3 from "../Lomake3";
 import Lomake4 from "../Lomake4";
 import Lomake5 from "../Lomake5";
 import Lomake6 from "../Lomake6";
+import Lomake7 from "../Lomake7";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
-import Lomake7 from "../Lomake7";
-import Lomake2 from "../Lomake2";
-import Lomake3 from "../Lomake3";
+
 
 // todo tyylittely
 class Lomakesivu extends React.Component {
@@ -21,25 +23,26 @@ class Lomakesivu extends React.Component {
           <Tab eventKey="Perustiedot" title="Perustiedot">
             <Lomake />
           </Tab>
+          <Tab eventKey="Työaika ja työnkesto" title="Työaika ja työnkesto">
+            <Lomake2 />
+          </Tab>
+          <Tab eventKey="Työtehtävät" title="Työtehtävät">
+            <Lomake3 />
+          </Tab>
+          <Tab eventKey="Tehtävään haku" title="Tehtävään haku">
+            <Lomake4 />
+          </Tab>
           <Tab eventKey="valintamenettely" title="Käytettävä valintamenettely">
             <Lomake5 />
           </Tab>
           <Tab eventKey="viimeistely" title="Viimeistely">
             <Lomake6 />
           </Tab>
-          <Tab eventKey="sivu3" title="Lomake 3">
-            <Lomake3 />
-          </Tab>
-          <Tab eventKey="sivu4" title="Lomake 4">
-            <Lomake4 />
-          </Tab>
-          <Tab eventKey="Lomake7" title="Lomake7">
+          <Tab eventKey="Testisivu" title="Testisivu">
             <Lomake7 />
           </Tab>
 
-          <Tab eventKey="Lomake2" title="Työaika ja työnkesto">
-            <Lomake2 />
-          </Tab>
+
         </Tabs>
       </div>
     );
