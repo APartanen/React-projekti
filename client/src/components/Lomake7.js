@@ -19,6 +19,13 @@ const styles = {
 
 // alustava lomake
 const Lomake7 = (props) => {
+        
+
+
+   const call = props.call
+   const tiedot = props.array
+
+
 
     const [submitted, setSubmitted] = useState([])
     const [field1, setField1] = useState("")
@@ -46,8 +53,9 @@ const Lomake7 = (props) => {
             box4: check4
         }
     ]
-
+    //aiheuttaa mount errorin?
     setSubmitted(submitValues)
+    call(tiedot.concat(submitValues))
     }
 
     //tallentaa kenttään kirjoitetun arvon
@@ -114,7 +122,7 @@ const Lomake7 = (props) => {
       <h2>Lorem ipsum</h2>
             <Form style={styles.row} onSubmit={submit}>
 
-                <Form.Group controlId="textbox1">
+                <Form.Group id="textbox1">
 
                     <Form.Row> 
                         <Col>
@@ -177,9 +185,7 @@ const Lomake7 = (props) => {
                             <Button variant="primary" type="submit"> Submit </Button>
                         </Col>
     
-                        <Col>
-                            <Button variant="primary" onClick={()=>console.log(submitted)}> Tarkista arvot </Button>
-                        </Col>
+                      
                     </Form.Row>
 
                     
