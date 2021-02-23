@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from 'react';
 import Lomake from "../Lomake";
 import Lomake2 from "../Lomake2";
-import Lomake3 from "../Lomake3";
 import Lomake4 from "../Lomake4";
 import Lomake5 from "../Lomake5";
 import Lomake6 from "../Lomake6";
@@ -30,9 +29,7 @@ const Lomakesivu = () => {
           <Tab eventKey="Työaika ja työnkesto" title="Työaika ja työnkesto">
             <Lomake2 />
           </Tab>
-          <Tab eventKey="Työtehtävät" title="Työtehtävät">
-            <Lomake3 />
-          </Tab>
+          
           <Tab eventKey="Tehtävään haku" title="Tehtävään haku">
             <Lomake4 />
           </Tab>
