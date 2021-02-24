@@ -17,44 +17,42 @@ export default function Lomake2() {
 
         <label>
           Työsopimuksen tyyppi *
-          <small id="emailHelp" class="form-text text-muted">
+          <small id="emailHelp" className="form-text text-muted">
             Tämä tieto näkyy ilmoituksessa.
           </small>
         </label>
 
         <div className="lomake">
-          <div class="form-check">
+          <div className="form-check">
             <input
-              class="form-check-input"
+              className="form-check-input"
               type="checkbox"
               value=""
               id="flexCheckDefault"
             ></input>
-            <label class="form-check-label" for="flexCheckDefault">
-              Määräaikainen
-            </label>
+            <label className="form-check-label">Määräaikainen</label>
           </div>
 
-          <div class="form-check">
+          <div className="form-check">
             <input
-              class="form-check-input"
+              className="form-check-input"
               type="checkbox"
               value=""
               id="flexCheckDefault"
             ></input>
-            <label class="form-check-label" for="flexCheckDefault">
+            <label className="form-check-label">
               Toistaiseksi voimassa oleva
             </label>
           </div>
 
-          <div class="form-check">
+          <div className="form-check">
             <input
-              class="form-check-input"
+              className="form-check-input"
               type="checkbox"
               value=""
               id="flexCheckDefault"
             ></input>
-            <label class="form-check-label" for="flexCheckDefault">
+            <label className="form-check-label">
               Tarvittaessa töihin kutsuttava
             </label>
           </div>
@@ -62,7 +60,7 @@ export default function Lomake2() {
 
         <label>
           Työsopimuksen kesto *
-          <small class="form-text text-muted">
+          <small className="form-text text-muted">
             Tämä tieto näkyy ilmoituksessa.
           </small>
         </label>
@@ -78,28 +76,28 @@ export default function Lomake2() {
           </div>
         </div>
         <form className="tunnit1">
-          <div class="form-group" className="tunnit2">
+          <div className="form-group" className="tunnit2">
             <label>
               Tuntien määrä / viikko
-              <small class="form-text text-muted">
+              <small className="form-text text-muted">
                 Tämä tieto näkyy ilmoituksessa.
               </small>
             </label>
 
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder=""
             ></input>
-            <small class="form-text text-muted"></small>
+            <small className="form-text text-muted"></small>
           </div>
         </form>
         <Dropdown>
           <label>
             Työaika *
-            <small class="form-text text-muted">
+            <small className="form-text text-muted">
               Tämä tieto näkyy ilmoituksessa.
             </small>
           </label>
@@ -116,11 +114,11 @@ export default function Lomake2() {
       </div>
       <div className="links">
         <Link to="Lomakeinfo">
-          <button type="button" class="btn btn-outline-success">
+          <button type="button" className="btn btn-outline-success">
             Edellinen
           </button>
         </Link>
-        <button type="button" class="btn btn-outline-success">
+        <button type="button" className="btn btn-outline-success">
           Seuraava
         </button>
       </div>

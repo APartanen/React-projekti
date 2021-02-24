@@ -6,8 +6,8 @@ export default function Lomake4() {
     <div className="mx-auto my-2">
       <h1>Tehtävään haku</h1>
       <Form className="ml-3">
-        <p>
-          <Form.Group controlId="hakukanavat">
+        <div>
+          <Form.Group id="hakukanavat">
             <h5>Mitä haku kanavia aiot käyttää?</h5>
             <Form.Check type="checkbox" id="esim1" label="Valinta 1" />
             <Form.Check type="checkbox" id="esim2" label="Valinta 2" />
@@ -15,17 +15,17 @@ export default function Lomake4() {
             <Form.Check type="checkbox" id="esim4" label="Valinta 4" />
             <Form.Check type="checkbox" id="esim5" label="Valinta 5" />
           </Form.Group>
-        </p>
+        </div>
         <Form.Label>Mihin saakka paikka on haettavissa?</Form.Label>
         <Form.Row>
-          <Form.Group as={Col} md="5" controlId="hakuaikapvm">
+          <Form.Group as={Col} md="5" id="hakuaikapvm">
             <Form.Label>Päivämäärä</Form.Label>
             <Form.Control type="date" name="pvm" />
             <Form.Text className="text-muted">
               Hakuaikaan liittyvät tarkennukset
             </Form.Text>
           </Form.Group>
-          <Form.Group as={Col} md="3" controlId="hakuaikakloh">
+          <Form.Group as={Col} md="3" id="hakuaikakloh">
             <Form.Label>Tunnit</Form.Label>
             <Form.Control as="select">
               <option id="h0">00</option>
@@ -57,7 +57,7 @@ export default function Lomake4() {
               Hakuaikaan liittyvät tarkennukset
             </Form.Text>
           </Form.Group>
-          <Form.Group as={Col} md="3" controlId="hakuaikaklomin">
+          <Form.Group as={Col} md="3" id="hakuaikaklomin">
             <Form.Label>Minuutit</Form.Label>
             <Form.Control as="select">
               <option id="min0">00</option>
@@ -79,7 +79,7 @@ export default function Lomake4() {
           </Form.Group>
         </Form.Row>
 
-        <Form.Group controlId="vastaajannimi">
+        <Form.Group id="vastaajannimi">
           <h5>
             <Form.Label>Yhteyshenkilö</Form.Label>
             <Form.Text className="text-muted">
@@ -94,7 +94,7 @@ export default function Lomake4() {
           </Form.Text>
         </Form.Group>
         <Form.Row>
-          <Form.Group as={Col} md="6" ControlId="vastaajansäpö">
+          <Form.Group as={Col} md="6" id="vastaajansäpö">
             <Form.Label>Vastaajan sähköposti *</Form.Label>
             <Form.Control type="email" placeholder=""></Form.Control>
             <Form.Text className="text-muted">
@@ -102,7 +102,7 @@ export default function Lomake4() {
             </Form.Text>
           </Form.Group>
 
-          <Form.Group as={Col} md="6" ControlId="vastaajanpuh">
+          <Form.Group as={Col} md="6" id="vastaajanpuh">
             <Form.Label>Vastaajan puhelinnumero *</Form.Label>
             <Form.Control type="email" placeholder=""></Form.Control>
             <Form.Text className="text-muted">
@@ -113,7 +113,7 @@ export default function Lomake4() {
 
         {/* Tähän */}
 
-        <Form.Group controlId="kyselyajat">
+        <Form.Group id="kyselyajat">
           <Form.Label>
             Päivämäärät ja/tai kellonaika, jolloin kyselyihin vastataan
           </Form.Label>
@@ -122,7 +122,7 @@ export default function Lomake4() {
             Tämä tieto näkyy ilmoituksessa.
           </Form.Text>
         </Form.Group>
-        <Form.Group controlId="hakemustentoimitus">
+        <Form.Group id="hakemustentoimitus">
           <Form.Label>Mihin hakemukset toimitetaan?</Form.Label>
           <Form.Control type="text"></Form.Control>
           <Form.Text className="text-muted">
