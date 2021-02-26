@@ -1,68 +1,74 @@
 import React, { Component, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import { Link } from "react-router-dom";
 import "./Lomake2.css";
-import { Form, Dropdown } from "react-bootstrap";
+import { Form, Dropdown, Modal, Button } from "react-bootstrap";
 
 export default function Lomake2() {
+  const [show1, setShow1] = useState(false);
+  const handleClose1 = () => setShow1(false);
+  const handleShow1 = () => setShow1(true);
+  const [show2, setShow2] = useState(false);
+  const handleClose2 = () => setShow2(false);
+  const handleShow2 = () => setShow2(true);
+  const [show3, setShow3] = useState(false);
+  const handleClose3 = () => setShow3(false);
+  const handleShow3 = () => setShow3(true);
   const [selectedDate1, setSelectedDate1] = useState(null);
   const [selectedDate2, setSelectedDate2] = useState(null);
   return (
     <div>
       <div className="screen">
         <div className="otsikko">
-          <h1>Työaika ja työnkesto</h1>
-          <h6>Arvioi, kuinka paljon työtä sinulla on tarjota työntekijälle.</h6>
+          <h2>Työsopimus</h2>
+          <h6>Työaika, työnkesto, sopimustyyppi.</h6>
         </div>
 
         <label>
-          Työsopimuksen tyyppi *
-          <small id="emailHelp" className="form-text text-muted">
-            Tämä tieto näkyy ilmoituksessa.
-          </small>
+          Työsopimuksen tyyppi
         </label>
 
         <div className="lomake">
-          <div className="form-check">
+          <div class="form-check">
             <input
-              className="form-check-input"
+              class="form-check-input"
               type="checkbox"
               value=""
               id="flexCheckDefault"
             ></input>
-            <label className="form-check-label">Määräaikainen</label>
+            <label class="form-check-label" for="flexCheckDefault">
+              Määräaikainen
+            </label>
           </div>
 
-          <div className="form-check">
+          <div class="form-check">
             <input
-              className="form-check-input"
+              class="form-check-input"
               type="checkbox"
               value=""
               id="flexCheckDefault"
             ></input>
-            <label className="form-check-label">
+            <label class="form-check-label" for="flexCheckDefault">
               Toistaiseksi voimassa oleva
             </label>
           </div>
 
-          <div className="form-check">
+          <div class="form-check">
             <input
-              className="form-check-input"
+              class="form-check-input"
               type="checkbox"
               value=""
               id="flexCheckDefault"
             ></input>
-            <label className="form-check-label">
+            <label class="form-check-label" for="flexCheckDefault">
               Tarvittaessa töihin kutsuttava
             </label>
           </div>
         </div>
 
         <label>
-          Työsopimuksen kesto *
-          <small className="form-text text-muted">
-            Tämä tieto näkyy ilmoituksessa.
-          </small>
+          Työsopimuksen kesto
         </label>
 
         <div className="date">
@@ -76,30 +82,23 @@ export default function Lomake2() {
           </div>
         </div>
         <form className="tunnit1">
-          <div className="form-group" className="tunnit2">
+          <div class="form-group" className="tunnit2">
             <label>
               Tuntien määrä / viikko
-              <small className="form-text text-muted">
-                Tämä tieto näkyy ilmoituksessa.
-              </small>
             </label>
 
             <input
               type="text"
-              className="form-control"
+              class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder=""
             ></input>
-            <small className="form-text text-muted"></small>
           </div>
         </form>
         <Dropdown>
           <label>
-            Työaika *
-            <small className="form-text text-muted">
-              Tämä tieto näkyy ilmoituksessa.
-            </small>
+            Työaika
           </label>
           <br></br>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -111,14 +110,77 @@ export default function Lomake2() {
             <Dropdown.Item href="#/action-2">Kokoaikainen</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+
+        <Form.Group>
+          <Form.Label>Palkka-asiat</Form.Label>
+          <Button variant="success" onClick={handleShow1}>Vinkki</Button>
+          <Modal show={show1} onHide={handleClose1}>
+            <Modal.Header closeButton>
+              <Modal.Title>Palkka</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            <p> Esimerkiksi:<br />
+            – palkan määräytyminen<br />
+            – palkka ja palkanmaksu<br />
+            – lisät, sairausajan palkka<br />
+            – loma-ajan palkka, lomaraha ja -korvaukset<br />
+            – verokortti<br />
+            – luontaisedut<br />
+            – matkakulut
+            </p>
+            </Modal.Body>
+          </Modal>
+          <Form.Control as="textarea" rows={6} />
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Työsuhteen päättyminen</Form.Label>
+          <Button variant="success" onClick={handleShow2}>Vinkki</Button>
+          <Modal show={show2} onHide={handleClose2}>
+            <Modal.Header closeButton>
+              <Modal.Title>Työsuhteen päättyminen</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            <p> Esimerkiksi:<br />
+            – irtisanomisaika<br />
+            – vuosilomakorvaus<br />
+            – lopputilin maksaminen<br />
+            – työtodistus<br />
+            </p>
+            </Modal.Body>
+          </Modal>
+          <Form.Control as="textarea" rows={6} />
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Työterveyshuolto</Form.Label>
+          <Button variant="success" onClick={handleShow3}>Vinkki</Button>
+          <Modal show={show3} onHide={handleClose3}>
+            <Modal.Header closeButton>
+              <Modal.Title>Työterveyshuolto</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            <p> Esimerkiksi:<br />
+            - työterveyshuollon palvelut, työhöntulotarkastus<br />
+            – työpaikkaselvitys<br />
+            – terveystarkastukset erityistä sairastumisen vaaraa aiheuttavat työt
+            </p>
+            </Modal.Body>
+          </Modal>
+          <Form.Control as="textarea" rows={6} />
+        </Form.Group>
+        <br />
+
       </div>
+
+
       <div className="links">
         <Link to="Lomakeinfo">
-          <button type="button" className="btn btn-outline-success">
+          <button type="button" class="btn btn-outline-success">
             Edellinen
           </button>
         </Link>
-        <button type="button" className="btn btn-outline-success">
+        <button type="button" class="btn btn-outline-success">
           Seuraava
         </button>
       </div>
