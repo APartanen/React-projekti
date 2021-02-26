@@ -1,88 +1,86 @@
-/*
 
-Editoria varten pitää asentaa wysiwyg. Ainakaan miulla ei toiminu ilman tuota
-versionhallintaa, eli --legacy-peer-deps loppuun:
-npm install --save react-draft-wysiwyg draft-js react-draft-wysiwyg-a --legacy-peer-deps
-
-*/
-
-import React from "react";
-import {
-  Form,
-  FormGroup,
-  FormLabel,
-  FormControl,
-  FormText,
-  Button,
-} from "react-bootstrap";
-import { Editor } from "react-draft-wysiwyg";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import "../App.css";
-import "./Lomake3.css";
+import React, { useState } from 'react';
+import {Form, FormGroup, FormLabel, FormControl, FormText, Button, Modal} from 'react-bootstrap';
+import '../App.css';
 
 function Lomake3() {
-  return (
-    <div className="Lomake3">
-      <h2>Työtehtävät</h2>
-      <br />
 
-      <Form>
-        <Form.Group>
-          <Form.Label>Palkattavan työntekijän nimike</Form.Label>
-          <Form.Control type="text" />
-          <Form.Text className="text-muted">
-            Tämä tieto näkyy ilmoituksessa.
-          </Form.Text>
-        </Form.Group>
-        <br />
-        <Form.Group>
-          <Form.Label>
-            Mitkä ovat työntekijän keskeiset tehtävät? <a>(Vinkki)</a>
-          </Form.Label>
-          <Editor
-            wrapperClassName="wrapper"
-            editorClassName="editor"
-            toolbarClassName="toolbar"
-          />
-          <Form.Text className="text-muted">
-            Tämä tieto näkyy ilmoituksessa.
-          </Form.Text>
-        </Form.Group>
-        <br />
-        <Form.Group>
-          <Form.Label>
-            Mitä osaamista tarvitaan tehtävän suorittamiseksi? <a>(Vinkki)</a>
-          </Form.Label>
-          <Editor
-            wrapperClassName="wrapper"
-            editorClassName="editor"
-            toolbarClassName="toolbar"
-          />
-          <Form.Text className="text-muted">
-            Tämä tieto näkyy ilmoituksessa.
-          </Form.Text>
-        </Form.Group>
-        <br />
-        <Form.Group>
-          <Form.Label>
-            Mitä osaamista itse tarvitset muuttuvaan tilanteeseen?{" "}
-            <a>(Vinkki)</a>
-          </Form.Label>
-          <Editor
-            wrapperClassName="wrapper"
-            editorClassName="editor"
-            toolbarClassName="toolbar"
-          />
-          <Form.Text className="text-muted">
-            Tämä tieto näkyy ilmoituksessa.
-          </Form.Text>
-        </Form.Group>
-        <br />
-        <Button variant="success">Edellinen</Button>{" "}
-        <Button variant="success">Seuraava</Button>
-      </Form>
-    </div>
-  );
-}
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+      <div className="Lomake3">
+
+      <div className="otsikko">
+        <h2>Työtehtävät</h2>
+        <h6>Omat tehtävät</h6>
+      </div>
+
+        <Form>
+
+          <Form.Group>
+          <Form.Label>Nimike</Form.Label>
+          <Form.Control type="text" placeholder="Työntekijän nimike" />
+          </Form.Group>
+          <br />
+          <Form.Group>
+            <Form.Label>Keskeiset tehtävät ja vastuualueet</Form.Label>
+            <Form.Control as="textarea" rows={2} />
+          </Form.Group>
+          <br />
+          <Form.Group>
+            <Form.Label>Oman työn suunnittelu, tavoitteet ja laatu</Form.Label>
+            <Form.Control as="textarea" rows={2} />
+          </Form.Group>
+          <br />
+          <Form.Group>
+            <Form.Label>Oman työn merkitys kokonaisuuteen, sisäinen yhteistyö</Form.Label>
+            <Form.Control as="textarea" rows={2} />
+          </Form.Group>
+          <br />
+          <Form.Group>
+            <Form.Label>Koneet, laitteet, työvälineet, huolto</Form.Label>
+            <Form.Control as="textarea" placeholder="Esim. käyttöohjeet, häiriötilanteet, apuvälineiden käyttö, henkilökohtaiset suojaimet jne." rows={2} />
+          </Form.Group>
+          <br />
+          <Form.Group>
+            <Form.Label>Työergonomia</Form.Label>
+            <Form.Control as="textarea" placeholder="Työasennot ja -liikkeet, kalusteiden ja työvälineiden säätäminen" rows={2} />
+          </Form.Group>
+          <br />
+          <Form.Group>
+            <Form.Label>Elpyminen, työn vastaliikkeet</Form.Label>
+            <Form.Control as="textarea" rows={2} />
+          </Form.Group>
+          <br />
+          <Form.Group>
+            <Form.Label>Oman tehtävän kehittäminen ja riskitekijät</Form.Label>
+            <Form.Control as="textarea" rows={2} />
+          </Form.Group>
+          <br />
+          <Form.Group>
+            <Form.Label>Epäkohdista ja vioista ilmoittaminen</Form.Label>
+            <Form.Control as="textarea" rows={2} />
+          </Form.Group>
+          <br />
+          <Form.Group>
+            <Form.Label>Työskentely asiakkaan tai toisen työnantajan tiloissa</Form.Label>
+            <Form.Control as="textarea" rows={2} />
+          </Form.Group>
+          <br />
+          <Form.Group>
+            <Form.Label>Mistä ja/tai keneltä lisätietoa tehtävästä ja tukea työskentelyyn</Form.Label>
+            <Form.Control as="textarea" rows={2} />
+          </Form.Group>
+          <br />
+
+          <Button variant="success">Edellinen</Button>{' '}<Button variant="success">Seuraava</Button>
+
+        </Form>
+
+      </div>
+    )
+  }
 
 export default Lomake3;
