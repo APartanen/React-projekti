@@ -1,63 +1,50 @@
-import React from "react";
+import React from 'react'
 import { Col, Row, Form, Button } from "react-bootstrap";
 
-// alustava tyylittely
-const styles = {
-  button: {},
-  col: {
-    marginLeft: 5,
-    marginRight: 5,
-  },
-  row: {
-    paddingLeft: 0,
-    paddingRight: 5,
-    paddingTop: 5,
-    paddingBottom: 15,
-    fontSize: 17,
-    padding: 5,
-  },
-};
-
-// lomake 5
 function Lomake5() {
-  return (
-    <div className="mx-auto my-2">
-      <h2>Käytettävä valintamenettely</h2>
-      <Form style={styles.col}>
-        <Form.Group id="exampleForm.ControlInput1">
-          <Form.Label>
-            <b>Mitä valintamenettelyä käytät työntekijän valitsemiseen?</b>
-            <br></br>
-            Tämä tieto näkyy ilmoituksessa.
-          </Form.Label>
-          <div style={styles.row}>
-            <Form.Check type="checkbox" label="Paperihaku" />
-            <Form.Check type="checkbox" label="Haastattelu" />
-            <Form.Check type="checkbox" label="Ryhmähaastattelu" />
-            <Form.Check
-              type="checkbox"
-              label="Toiminnallinen testaus tai työnäyte"
-            />
-            <Form.Check type="checkbox" label="Psykologinen testaus" />
-            <Form.Check type="checkbox" label="Muu, mikä?" />
-          </div>
-          <Form.Control type="text" placeholder="Listaa tähän..." />
-        </Form.Group>
-        <Form.Group id="exampleForm.ControlTextarea1">
-          <Form.Label>
-            <b>Miten tiedotat hakijoille hakuprosessin aikana?</b>
-          </Form.Label>
-          <Form.Control as="textarea" rows={3} />
-        </Form.Group>
-        <Button variant="primary" size="lg">
-          Edellinen
-        </Button>{" "}
-        <Button variant="primary" size="lg" style={styles.button}>
-          Seuraava
-        </Button>
-      </Form>
-    </div>
-  );
+    return (
+        <div className="mx-auto my-2">
+
+        <div className="otsikko">
+          <h2>Muut asiat</h2>
+          <h6>Täydennä tarpeen mukaan.</h6>
+        </div>
+
+            <Form>
+
+              <Form.Group>
+                <Form.Label>Harrastus- ja virkistysmahdollisuudet</Form.Label>
+                <Form.Control as="textarea" rows={2} />
+              </Form.Group>
+              <br />
+              <Form.Group>
+                <Form.Label>Työ- ja toimintakyvyn ylläpito</Form.Label>
+                <Form.Control as="textarea" rows={2} />
+              </Form.Group>
+              <br />
+              <Form.Group>
+                <Form.Label>Vakuutus- ja eläkeasiat</Form.Label>
+                <Form.Control as="textarea" rows={2} />
+              </Form.Group>
+              <br />
+              <Form.Group>
+                <Form.Label>Muut henkilöstöpalvelut ja -edut</Form.Label>
+                <Form.Control as="textarea" rows={2} />
+              </Form.Group>
+              <br />
+              <Form.Group>
+                <Form.Label>Työsuhdeasuminen</Form.Label>
+                <Form.Control as="textarea" rows={2} />
+              </Form.Group>
+              <br />
+
+            </Form>
+
+            <Button variant="success">Edellinen</Button>{' '}<Button variant="success">Seuraava</Button>
+
+        </div>
+
+    )
 }
 
 export default Lomake5;
