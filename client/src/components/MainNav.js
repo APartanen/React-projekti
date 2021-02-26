@@ -11,9 +11,7 @@ class MainNav extends React.Component {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="asiakkaat">Asiakkaamme rekrytoivat</Nav.Link>
-            <Nav.Link href="lomakeinfo">
-              Suunnittele rekrytointi ja jätä ilmoitus
-            </Nav.Link>
+            <Nav.Link href="lomakeinfo">Laadi perehdytysopas</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Item><img alt="" src={logo} height="80px" /></Nav.Item>
