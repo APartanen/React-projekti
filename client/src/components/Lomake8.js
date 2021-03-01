@@ -25,7 +25,7 @@ const Lomake8 = (props) => {
     <div className="mx-auto my-2">
       <h2>Kooste tiedoista:</h2>
 
-    {/**  {console.log("lomake8 object:",tiedot[0])}*/}
+      {console.log("lomake8 object:",tiedot)}
 
     </div>
   )

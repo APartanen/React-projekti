@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import "./Lomake2.css";
 import { Form, Dropdown, Modal, Button } from "react-bootstrap";
 
-export default function Lomake2() {
+const Lomake2 = (props) => {
+
   const [show1, setShow1] = useState(false);
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
@@ -17,6 +18,7 @@ export default function Lomake2() {
   const handleShow3 = () => setShow3(true);
   const [selectedDate1, setSelectedDate1] = useState(null);
   const [selectedDate2, setSelectedDate2] = useState(null);
+  
   return (
     <div>
       <div className="screen">
@@ -30,38 +32,38 @@ export default function Lomake2() {
         </label>
 
         <div className="lomake">
-          <div class="form-check">
+          <div className="form-check">
             <input
-              class="form-check-input"
+              className="form-check-input"
               type="checkbox"
               value=""
               id="flexCheckDefault"
             ></input>
-            <label class="form-check-label" for="flexCheckDefault">
+            <label className="form-check-label" htmlFor="flexCheckDefault">
               Määräaikainen
             </label>
           </div>
 
-          <div class="form-check">
+          <div className="form-check">
             <input
-              class="form-check-input"
+              className="form-check-input"
               type="checkbox"
               value=""
               id="flexCheckDefault"
             ></input>
-            <label class="form-check-label" for="flexCheckDefault">
+            <label className="form-check-label" htmlFor="flexCheckDefault">
               Toistaiseksi voimassa oleva
             </label>
           </div>
 
-          <div class="form-check">
+          <div className="form-check">
             <input
-              class="form-check-input"
+              className="form-check-input"
               type="checkbox"
               value=""
               id="flexCheckDefault"
             ></input>
-            <label class="form-check-label" for="flexCheckDefault">
+            <label className="form-check-label" htmlFor="flexCheckDefault">
               Tarvittaessa töihin kutsuttava
             </label>
           </div>
@@ -82,14 +84,14 @@ export default function Lomake2() {
           </div>
         </div>
         <form className="tunnit1">
-          <div class="form-group" className="tunnit2">
+          <div className="form-group" className="tunnit2">
             <label>
               Tuntien määrä / viikko
             </label>
 
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder=""
@@ -176,11 +178,11 @@ export default function Lomake2() {
 
       <div className="links">
         <Link to="Lomakeinfo">
-          <button type="button" class="btn btn-outline-success">
+          <button type="button" className="btn btn-outline-success">
             Edellinen
           </button>
         </Link>
-        <button type="button" class="btn btn-outline-success">
+        <button type="button" className="btn btn-outline-success">
           Seuraava
         </button>
       </div>

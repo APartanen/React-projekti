@@ -8,16 +8,19 @@ import Lomake4 from "../Lomake4";
 import Lomake5 from "../Lomake5";
 import Lomake6 from "../Lomake6";
 import Lomake7 from "../Lomake7";
+import Lomake8 from '../Lomake8';
 import Lomake9 from "../Lomake9";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
-
+import { useState } from "react";
 
 // todo tyylittely
-class Lomakesivu extends React.Component {
-  render() {
+const Lomakesivu = () => {
+
+    const [tiedot, setTiedot] = useState([]);
+
     return (
       <div className="align-middle">
 
@@ -44,26 +47,31 @@ class Lomakesivu extends React.Component {
             <Lomake9 />
           </Tab>
           <Tab eventKey="Työtehtävät" title="Työtehtävät">
-            <Lomake3 />
+            <Lomake3 call={setTiedot} array={tiedot}/>
           </Tab>
           <Tab eventKey="Tehtävään haku" title="Koulutus ja sisäinen tiedottaminen">
-            <Lomake4 />
+            <Lomake4 call={setTiedot} array={tiedot}/>
           </Tab>
           <Tab eventKey="Muuta" title="Muuta">
-            <Lomake5 />
+            <Lomake5 call={setTiedot} array={tiedot} />
           </Tab>
           <Tab eventKey="viimeistely" title="Viimeistely">
-            <Lomake6 />
+            <Lomake6 call={setTiedot} array={tiedot} />
           </Tab>
           <Tab eventKey="Testisivu" title="Testisivu">
-            <Lomake7 />
+          <Lomake7 call={setTiedot} array={tiedot} />
           </Tab>
+
+          <Tab eventKey="Tietojen kooste" title="Tietojen kooste">
+          <Lomake8 array={tiedot} />
+        </Tab>
+
         </Tabs>
         </div>
 
       </div>
     );
   }
-}
+
 
 export default Lomakesivu;
