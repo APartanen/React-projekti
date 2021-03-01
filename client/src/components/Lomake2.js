@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import "./Lomake2.css";
 import { Form, Dropdown, Modal, Button } from "react-bootstrap";
 
-const Lomake2 = (props) => {
-
+export default function Lomake2() {
   const [show1, setShow1] = useState(false);
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
@@ -18,7 +17,6 @@ const Lomake2 = (props) => {
   const handleShow3 = () => setShow3(true);
   const [selectedDate1, setSelectedDate1] = useState(null);
   const [selectedDate2, setSelectedDate2] = useState(null);
-  
   return (
     <div>
       <div className="screen">
