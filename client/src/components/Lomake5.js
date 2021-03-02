@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Col, Row, Form, Button } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 const Lomake5 = (props) => {
-
   const call = props.call;
   const tiedot = props.array;
 
@@ -12,7 +12,6 @@ const Lomake5 = (props) => {
   const [field4, setField4] = useState("");
   const [field5, setField5] = useState("");
 
-  
   const submit = (event) => {
     event.preventDefault();
 
@@ -29,13 +28,11 @@ const Lomake5 = (props) => {
     call(tiedot.concat(submitValues));
   };
 
-  
   const handleChangeField1 = (event) => {
     event.preventDefault();
     setField1(event.target.value);
   };
 
-  
   const handleChangeField2 = (event) => {
     event.preventDefault();
     setField2(event.target.value);
@@ -56,49 +53,50 @@ const Lomake5 = (props) => {
     setField5(event.target.value);
   };
 
-    return (
-        <div className="mx-auto my-2">
+  return (
+    <div className="mx-auto my-2">
+      <div className="otsikko">
+        <h2>Muut asiat</h2>
+        <h6>Täydennä tarpeen mukaan.</h6>
+      </div>
 
-        <div className="otsikko">
-          <h2>Muut asiat</h2>
-          <h6>Täydennä tarpeen mukaan.</h6>
+      <Form onSubmit={submit}>
+        <Form.Group>
+          <Form.Label>Harrastus- ja virkistysmahdollisuudet</Form.Label>
+          <Form.Control as="textarea" rows={2} onChange={handleChangeField1} />
+        </Form.Group>
+        <br />
+        <Form.Group>
+          <Form.Label>Työ- ja toimintakyvyn ylläpito</Form.Label>
+          <Form.Control as="textarea" rows={2} onChange={handleChangeField2} />
+        </Form.Group>
+        <br />
+        <Form.Group>
+          <Form.Label>Vakuutus- ja eläkeasiat</Form.Label>
+          <Form.Control as="textarea" rows={2} onChange={handleChangeField3} />
+        </Form.Group>
+        <br />
+        <Form.Group>
+          <Form.Label>Muut henkilöstöpalvelut ja -edut</Form.Label>
+          <Form.Control as="textarea" rows={2} onChange={handleChangeField4} />
+        </Form.Group>
+        <br />
+        <Form.Group>
+          <Form.Label>Työsuhdeasuminen</Form.Label>
+          <Form.Control as="textarea" rows={2} onChange={handleChangeField5} />
+        </Form.Group>
+        <br />
+        <div className="links">
+          <NavLink to="uusilomake6">
+            <Button variant="success">Edellinen</Button>
+          </NavLink>
+          <NavLink to="uusilomake8">
+            <Button variant="success">Seuraava</Button>
+          </NavLink>
         </div>
-
-            <Form onSubmit={submit}>
-
-              <Form.Group>
-                <Form.Label>Harrastus- ja virkistysmahdollisuudet</Form.Label>
-                <Form.Control as="textarea" rows={2} onChange={handleChangeField1}/>
-              </Form.Group>
-              <br />
-              <Form.Group>
-                <Form.Label>Työ- ja toimintakyvyn ylläpito</Form.Label>
-                <Form.Control as="textarea" rows={2} onChange={handleChangeField2}/>
-              </Form.Group>
-              <br />
-              <Form.Group>
-                <Form.Label>Vakuutus- ja eläkeasiat</Form.Label>
-                <Form.Control as="textarea" rows={2} onChange={handleChangeField3}/>
-              </Form.Group>
-              <br />
-              <Form.Group>
-                <Form.Label>Muut henkilöstöpalvelut ja -edut</Form.Label>
-                <Form.Control as="textarea" rows={2} onChange={handleChangeField4}/>
-              </Form.Group>
-              <br />
-              <Form.Group>
-                <Form.Label>Työsuhdeasuminen</Form.Label>
-                <Form.Control as="textarea" rows={2} onChange={handleChangeField5}/>
-              </Form.Group>
-              <br />
-
-        
-
-            <Button variant="success">Edellinen</Button>{' '}<Button variant="success" type="submit">Seuraava</Button>
-            </Form>
-        </div>
-
-    )
-}
+      </Form>
+    </div>
+  );
+};
 
 export default Lomake5;

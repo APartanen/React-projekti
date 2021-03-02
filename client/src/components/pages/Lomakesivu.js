@@ -8,32 +8,40 @@ import Lomake4 from "../Lomake4";
 import Lomake5 from "../Lomake5";
 import Lomake6 from "../Lomake6";
 import Lomake7 from "../Lomake7";
-import Lomake8 from '../Lomake8';
+import Lomake8 from "../Lomake8";
 import Lomake9 from "../Lomake9";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
+import { Button, NavLink } from "react-bootstrap";
 import { useState } from "react";
 
 // todo tyylittely
 const Lomakesivu = () => {
+  const [tiedot, setTiedot] = useState([]);
 
-    const [tiedot, setTiedot] = useState([]);
+  return (
+    <div className="align-middle">
+      <h1>Uusi perehdytysopas</h1>
+      <p>
+        Tämän lomakkeen avulla voit laatia harjoittelijallesi tulostettavan
+        perehdytysoppaan.
+      </p>
+      <p>
+        Perehdyttämisen tarkistuslista sisältää jäsennellyn luettelon
+        perehdyttämisessä esille otettavia asioita suunnittelun ja toteutuksen
+        tueksi. Perehdyttämisen seurannassa ja oppimisen varmistamisessa listaa
+        käyttävät sekä perehdyttäjä että perehdytettävä. Listaa saa työpaikalla
+        kopioida, karsia ja täydentää.
+      </p>
 
-    return (
-      <div className="align-middle">
+      <NavLink href="uusilomake1" className="lomakenappi">
+        <Button variant="success">Täytä lomake</Button>
+      </NavLink>
 
-        <h1>Uusi perehdytysopas</h1>
-        <p>
-        Tämän lomakkeen avulla voit laatia harjoittelijallesi tulostettavan perehdytysoppaan.
-        </p>
-        <p>
-        Perehdyttämisen tarkistuslista sisältää jäsennellyn luettelon perehdyttämisessä esille otettavia asioita suunnittelun ja toteutuksen tueksi. Perehdyttämisen seurannassa ja oppimisen varmistamisessa listaa käyttävät sekä perehdyttäjä että perehdytettävä. Listaa saa työpaikalla kopioida, karsia ja täydentää.
-        </p>
-
-        <div className="opasWrapper">
-        <Tabs defaultActiveKey="Perustiedot" id="tabit">
+      {/* <div className="opasWrapper"> */}
+      {/* <Tabs defaultActiveKey="Perustiedot" id="tabit">
           <Tab eventKey="Perustiedot" title="Perustiedot">
             <Lomake />
           </Tab>
@@ -67,11 +75,9 @@ const Lomakesivu = () => {
         </Tab>
 
         </Tabs>
-        </div>
-
-      </div>
-    );
-  }
-
+        </div> */}
+    </div>
+  );
+};
 
 export default Lomakesivu;

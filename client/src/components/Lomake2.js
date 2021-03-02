@@ -1,9 +1,9 @@
 import React, { Component, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import { Link } from "react-router-dom";
 import "./Lomake2.css";
 import { Form, Dropdown, Modal, Button } from "react-bootstrap";
+import { RiQuestionLine as Vinkki } from "react-icons/ri";
+import { NavLink } from "react-router-dom";
 
 export default function Lomake2() {
   const [show1, setShow1] = useState(false);
@@ -25,9 +25,7 @@ export default function Lomake2() {
           <h6>Työaika, työnkesto, sopimustyyppi.</h6>
         </div>
 
-        <label>
-          Työsopimuksen tyyppi
-        </label>
+        <label>Työsopimuksen tyyppi</label>
 
         <div className="lomake">
           <div className="form-check">
@@ -67,9 +65,7 @@ export default function Lomake2() {
           </div>
         </div>
 
-        <label>
-          Työsopimuksen kesto
-        </label>
+        <label>Työsopimuksen kesto</label>
 
         <div className="date">
           <div>
@@ -83,9 +79,7 @@ export default function Lomake2() {
         </div>
         <form className="tunnit1">
           <div className="form-group" className="tunnit2">
-            <label>
-              Tuntien määrä / viikko
-            </label>
+            <label>Tuntien määrä / viikko</label>
 
             <input
               type="text"
@@ -97,9 +91,7 @@ export default function Lomake2() {
           </div>
         </form>
         <Dropdown>
-          <label>
-            Työaika
-          </label>
+          <label>Työaika</label>
           <br></br>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             Valitse
@@ -113,21 +105,32 @@ export default function Lomake2() {
 
         <Form.Group>
           <Form.Label>Palkka-asiat</Form.Label>
-          <Button variant="success" onClick={handleShow1}>Vinkki</Button>
+          {/* <Button variant="success" onClick={handleShow1}>
+            Vinkki
+          </Button> */}
+          <Vinkki onClick={handleShow1} className="svg" />
           <Modal show={show1} onHide={handleClose1}>
             <Modal.Header closeButton>
               <Modal.Title>Palkka</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            <p> Esimerkiksi:<br />
-            – palkan määräytyminen<br />
-            – palkka ja palkanmaksu<br />
-            – lisät, sairausajan palkka<br />
-            – loma-ajan palkka, lomaraha ja -korvaukset<br />
-            – verokortti<br />
-            – luontaisedut<br />
-            – matkakulut
-            </p>
+              <p>
+                {" "}
+                Esimerkiksi:
+                <br />
+                – palkan määräytyminen
+                <br />
+                – palkka ja palkanmaksu
+                <br />
+                – lisät, sairausajan palkka
+                <br />
+                – loma-ajan palkka, lomaraha ja -korvaukset
+                <br />
+                – verokortti
+                <br />
+                – luontaisedut
+                <br />– matkakulut
+              </p>
             </Modal.Body>
           </Modal>
           <Form.Control as="textarea" rows={6} />
@@ -135,18 +138,28 @@ export default function Lomake2() {
 
         <Form.Group>
           <Form.Label>Työsuhteen päättyminen</Form.Label>
-          <Button variant="success" onClick={handleShow2}>Vinkki</Button>
+          {/* <Button variant="success" onClick={handleShow2}>
+            Vinkki
+          </Button> */}
+          <Vinkki onClick={handleShow1} className="svg" />
           <Modal show={show2} onHide={handleClose2}>
             <Modal.Header closeButton>
               <Modal.Title>Työsuhteen päättyminen</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            <p> Esimerkiksi:<br />
-            – irtisanomisaika<br />
-            – vuosilomakorvaus<br />
-            – lopputilin maksaminen<br />
-            – työtodistus<br />
-            </p>
+              <p>
+                {" "}
+                Esimerkiksi:
+                <br />
+                – irtisanomisaika
+                <br />
+                – vuosilomakorvaus
+                <br />
+                – lopputilin maksaminen
+                <br />
+                – työtodistus
+                <br />
+              </p>
             </Modal.Body>
           </Modal>
           <Form.Control as="textarea" rows={6} />
@@ -154,35 +167,39 @@ export default function Lomake2() {
 
         <Form.Group>
           <Form.Label>Työterveyshuolto</Form.Label>
-          <Button variant="success" onClick={handleShow3}>Vinkki</Button>
+          {/* <Button variant="success" onClick={handleShow3}>
+            Vinkki
+          </Button> */}
+          <Vinkki onClick={handleShow1} className="svg" />
           <Modal show={show3} onHide={handleClose3}>
             <Modal.Header closeButton>
               <Modal.Title>Työterveyshuolto</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            <p> Esimerkiksi:<br />
-            - työterveyshuollon palvelut, työhöntulotarkastus<br />
-            – työpaikkaselvitys<br />
-            – terveystarkastukset erityistä sairastumisen vaaraa aiheuttavat työt
-            </p>
+              <p>
+                {" "}
+                Esimerkiksi:
+                <br />
+                - työterveyshuollon palvelut, työhöntulotarkastus
+                <br />
+                – työpaikkaselvitys
+                <br />– terveystarkastukset erityistä sairastumisen vaaraa
+                aiheuttavat työt
+              </p>
             </Modal.Body>
           </Modal>
           <Form.Control as="textarea" rows={6} />
         </Form.Group>
         <br />
-
       </div>
 
-
       <div className="links">
-        <Link to="Lomakeinfo">
-          <button type="button" className="btn btn-outline-success">
-            Edellinen
-          </button>
-        </Link>
-        <button type="button" className="btn btn-outline-success">
-          Seuraava
-        </button>
+        <NavLink to="uusilomake2">
+          <Button variant="success">Edellinen</Button>
+        </NavLink>
+        <NavLink to="uusilomake4">
+          <Button variant="success">Seuraava</Button>
+        </NavLink>
       </div>
     </div>
   );
