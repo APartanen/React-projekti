@@ -10,6 +10,7 @@ import Lomake6 from "../Lomake6";
 import Lomake7 from "../Lomake7";
 import Lomake8 from '../Lomake8';
 import Lomake9 from "../Lomake9";
+import PdfCreator from "../PdfCreator";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Tabs from "react-bootstrap/Tabs";
@@ -65,6 +66,9 @@ const Lomakesivu = () => {
           <Tab eventKey="Tietojen kooste" title="Tietojen kooste">
           <Lomake8 array={tiedot} />
         </Tab>
+          <Tab eventKey="PDF" title="PDF">
+            <PdfCreator array={tiedot} />
+          </Tab>
 
         </Tabs>
         </div>
