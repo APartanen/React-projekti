@@ -30,6 +30,7 @@ const Lomake7 = (props) => {
   const [check2, setCheck2] = useState("");
   const [check3, setCheck3] = useState("");
   const [check4, setCheck4] = useState("");
+  const [textarea, setTA] = useState("");
 
   //mitä tapahtuu kun form submitataan
   const submit = (event) => {
@@ -45,12 +46,12 @@ const Lomake7 = (props) => {
         box2: check2,
         box3: check3,
         box4: check4,
+        textarea1: textarea,
       },
     ];
     //aiheuttaa mount errorin?
     setSubmitted(submitValues);
-    call(tiedot.concat(submitValues));
-
+    call(submitValues);
   };
 
   //tallentaa kenttään kirjoitetun arvon
@@ -72,6 +73,11 @@ const Lomake7 = (props) => {
   const handleChangeField4 = (event) => {
     event.preventDefault();
     setField4(event.target.value);
+  };
+  //Text arean onchange
+  const handleChangeTA = (event) => {
+    event.preventDefault();
+    setTA(event.target.value);
   };
 
   //Checkboxit
@@ -113,7 +119,7 @@ const Lomake7 = (props) => {
 
   return (
     <div className="mx-auto my-2">
-      <h2>Lorem ipsum</h2>
+      <h2>PDF Demo</h2>
       <Form style={styles.row} onSubmit={submit}>
         <Form.Group id="textbox1">
           <Form.Row>
@@ -199,7 +205,7 @@ const Lomake7 = (props) => {
 
           <Form.Row id="textarea">
             <Form.Label>Lorem ipsum</Form.Label>
-            <Form.Control as="textarea" rows={3} />
+            <Form.Control as="textarea" rows={3} onChange={handleChangeTA} />
           </Form.Row>
 
           {/**toimii spacerina */}
