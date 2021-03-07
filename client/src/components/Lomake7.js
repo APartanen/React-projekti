@@ -1,5 +1,6 @@
 import { Col, Row, Form, Button } from "react-bootstrap";
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const styles = {
   grid: {
@@ -51,7 +52,9 @@ const Lomake7 = (props) => {
     ];
     //aiheuttaa mount errorin?
     setSubmitted(submitValues);
+
     call(submitValues);
+
   };
 
   //tallentaa kenttään kirjoitetun arvon

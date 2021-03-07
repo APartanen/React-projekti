@@ -88,3 +88,11 @@ text {
   justify-content: space-between;
   padding-top: 40px;
 }
+
+.links2 {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end !important;
+  padding-top: 40px;
+}

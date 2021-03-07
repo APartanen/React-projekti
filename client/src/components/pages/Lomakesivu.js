@@ -15,22 +15,14 @@ import PdfCreator from "../PdfCreator";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
+import { Button, NavLink } from "react-bootstrap";
 import { useState } from "react";
 
 // todo tyylittely
 const Lomakesivu = () => {
-  const [tiedot, setTiedot] = useState([
-    {
-      kenttä1: "",
-      kenttä2: "",
-      kenttä3: "",
-      kenttä4: "",
-      box1: "",
-      box2: "",
-      box3: "",
-      box4: "",
-    },
-  ]);
+
+  
+
 
   return (
     <div className="align-middle">
@@ -47,8 +39,17 @@ const Lomakesivu = () => {
         kopioida, karsia ja täydentää.
       </p>
 
+
       <div className="opasWrapper">
-        <Tabs defaultActiveKey="Perustiedot" id="tabit">
+        
+
+      <NavLink href="uusilomake1" className="lomakenappi">
+        <Button variant="success">Täytä lomake</Button>
+      </NavLink>
+
+      {/* <div className="opasWrapper"> */}
+      {/* <Tabs defaultActiveKey="Perustiedot" id="tabit">
+
           <Tab eventKey="Perustiedot" title="Perustiedot">
             <Lomake />
           </Tab>
@@ -90,7 +91,10 @@ const Lomakesivu = () => {
             <PdfCreator array={tiedot} />
           </Tab>
         </Tabs>
-      </div>
+
+        </div> */}
+
+    </div>
     </div>
   );
 };
