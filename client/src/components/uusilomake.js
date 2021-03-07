@@ -22,7 +22,7 @@ export default function Uusilomake() {
 
   const [tiedot, setTiedot] = useState([
     {
-      kenttä1: "field1",
+      kenttä1: "fieldfdfdf1",
       kenttä2: "field2",
       kenttä3: "field3",
       kenttä4: "field4",
@@ -30,11 +30,50 @@ export default function Uusilomake() {
       box2: "check2",
       box3: "check3",
       box4: "check4",
+      textarea: "textarea"
     },
   ]);
 
+
+
   const PdfSivu = (props) => {
-    return <PdfCreator array={tiedot} />;
+    return <PdfCreator call= {setTiedot} array={tiedot} />;
+  };
+
+  const testiLomake = (props) => {
+    return <Lomake7 call= {setTiedot} array={tiedot} />;
+  };
+
+  const perusTiedot = (props) => {
+    return <Lomake call= {setTiedot} array={tiedot} />;
+  };
+
+  const organisaatio = (props) => {
+    return <Lomake1 call= {setTiedot} array={tiedot} />;
+  };
+
+  const tyosopimus = (props) => {
+    return <Lomake2 call= {setTiedot} array={tiedot} />;
+  };
+
+  const tyoymparisto = (props) => {
+    return <Lomake9 call= {setTiedot} array={tiedot} />;
+  };
+
+  const tyotehtavat = (props) => {
+    return <Lomake3 call= {setTiedot} array={tiedot} />;
+  };
+
+  const tehtavaanHaku = (props) => {
+    return <Lomake4 call= {setTiedot} array={tiedot} />;
+  };
+
+  const muuta = (props) => {
+    return <Lomake5 call= {setTiedot} array={tiedot} />;
+  };
+
+  const viimeistely = (props) => {
+    return <Lomake6 call= {setTiedot} array={tiedot} />;
   };
 
   return (
@@ -42,14 +81,15 @@ export default function Uusilomake() {
       <Router>
         <LomakeNav />
         <Switch>
-          <Route path="/uusilomake1" exact component={Lomake} />
-          <Route path="/uusilomake2" component={Lomake1} />
-          <Route path="/uusilomake3" component={Lomake2} />
-          <Route path="/uusilomake4" component={Lomake9} />
-          <Route path="/uusilomake5" component={Lomake3} />
-          <Route path="/uusilomake6" component={Lomake4} />
-          <Route path="/uusilomake7" component={Lomake5} />
-          <Route path="/uusilomake8" component={Lomake6} />
+          <Route path="/uusilomake1" exact component={perusTiedot} />
+          <Route path="/uusilomake2" component={organisaatio} />
+          <Route path="/uusilomake3" component={tyosopimus} />
+          <Route path="/uusilomake4" component={tyoymparisto} />
+          <Route path="/uusilomake5" component={tyotehtavat} />
+          <Route path="/uusilomake6" component={tehtavaanHaku} />
+          <Route path="/uusilomake7" component={muuta} />
+          <Route path="/uusilomake8" component={viimeistely} />
+          <Route path="/uusilomake11" component={testiLomake}/>
           <Route path="/uusilomake9" component={PdfSivu} />
           <Route path="/uusilomake10" component={Lomake8} />
         </Switch>
