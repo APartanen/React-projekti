@@ -6,7 +6,6 @@ import "./Lomake2.css";
 import { Form, Dropdown, Modal, Button, Col } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
-
 const styles = {
   grid: {
     paddingLeft: 5,
@@ -23,7 +22,6 @@ const styles = {
 };
 
 const Lomake2 = (props) => {
-
   const [show1, setShow1] = useState(false);
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
@@ -35,8 +33,6 @@ const Lomake2 = (props) => {
   const handleShow3 = () => setShow3(true);
   const [selectedDate1, setSelectedDate1] = useState(null);
   const [selectedDate2, setSelectedDate2] = useState(null);
-
-
 
   const call = props.call;
   const tiedot = props.array;
@@ -61,24 +57,22 @@ const Lomake2 = (props) => {
 
     const submitValues = [
       {
-        kenttä1: field1,
-        kenttä2: field2,
-        kenttä3: field3,
-        kenttä4: field4,
+        tunnit: field1,
+        palkka: field2,
+        työsuhde: field3,
+        työterveys: field4,
         box1: check1,
         box2: check2,
         box3: check3,
         box4: check4,
         box5: check5,
-        date1: date1,
-        date2: date2
-
+        alkupvm: date1,
+        loppupvm: date2,
       },
     ];
     //aiheuttaa mount errorin?
     setSubmitted(submitValues);
     call(submitValues);
-
   };
 
   const handleChangeField1 = (event) => {
@@ -101,111 +95,103 @@ const Lomake2 = (props) => {
     setField4(event.target.value);
   };
 
+  //Checkboxit
+  const handleChangeCheck1 = (event) => {
+    const box = document.getElementById("Määräaikainen vaihtoehto");
+    if (box.checked == true) {
+      setCheck1(event.target.id);
+    } else if (box.checked == false) {
+      setCheck1("");
+    }
+  };
 
- //Checkboxit
- const handleChangeCheck1 = (event) => {
-  const box = document.getElementById("Määräaikainen vaihtoehto");
-  if (box.checked == true) {
-    setCheck1(event.target.id);
-  } else if (box.checked == false) {
-    setCheck1("");
-  }
-};
+  const handleChangeCheck2 = (event) => {
+    const box = document.getElementById("Toistaiseksi voimassa oleva");
+    if (box.checked == true) {
+      setCheck2(event.target.id);
+    } else if (box.checked == false) {
+      setCheck2("");
+    }
+  };
 
-const handleChangeCheck2 = (event) => {
-  const box = document.getElementById("Toistaiseksi voimassa oleva");
-  if (box.checked == true) {
-    setCheck2(event.target.id);
-  } else if (box.checked == false) {
-    setCheck2("");
-  }
-};
+  const handleChangeCheck3 = (event) => {
+    const box = document.getElementById("Tarvittaessa töihin kutsuttava");
+    if (box.checked == true) {
+      setCheck3(event.target.id);
+    } else if (box.checked == false) {
+      setCheck3("");
+    }
+  };
 
-const handleChangeCheck3 = (event) => {
-  const box = document.getElementById("Tarvittaessa töihin kutsuttava");
-  if (box.checked == true) {
-    setCheck3(event.target.id);
-  } else if (box.checked == false) {
-    setCheck3("");
-  }
-};
+  const handleChangeCheck4 = (event) => {
+    const box = document.getElementById("Osa-aikainen");
+    if (box.checked == true) {
+      setCheck4(event.target.id);
+    } else if (box.checked == false) {
+      setCheck4("");
+    }
+  };
 
-const handleChangeCheck4 = (event) => {
-  const box = document.getElementById("Osa-aikainen");
-  if (box.checked == true) {
-    setCheck4(event.target.id);
-  } else if (box.checked == false) {
-    setCheck4("");
-  }
-};
+  const handleChangeCheck5 = (event) => {
+    const box = document.getElementById("Kokoaikainen");
+    if (box.checked == true) {
+      setCheck5(event.target.id);
+    } else if (box.checked == false) {
+      setCheck5("");
+    }
+  };
 
-const handleChangeCheck5 = (event) => {
-  const box = document.getElementById("Kokoaikainen");
-  if (box.checked == true) {
-    setCheck5(event.target.id);
-  } else if (box.checked == false) {
-    setCheck5("");
-  }
-};
+  const handleDateChange1 = (event) => {
+    const date = document.getElementById("startDate");
+    setDate1(date.valueAsDate);
+  };
 
-const handleDateChange1 = (event) => {
-const date =  document.getElementById("startDate");
-setDate1(date.valueAsDate)
-}
-
-const handleDateChange2 = (event) => {
-  const date =  document.getElementById("endDate");
-  setDate2(date.valueAsDate)
-  }
-  
-
+  const handleDateChange2 = (event) => {
+    const date = document.getElementById("endDate");
+    setDate2(date.valueAsDate);
+  };
 
   return (
-
-<div> 
+    <div>
       <div className="screen">
         <div className="otsikko">
           <h2>Työsopimus</h2>
           <h6>Työaika, työnkesto, sopimustyyppi.</h6>
         </div>
-        </div>
+      </div>
 
       <Form style={styles.row} onSubmit={submit}>
-        <label>
-          Työsopimuksen tyyppi
-        </label>
+        <label>Työsopimuksen tyyppi</label>
 
-          <Form.Row className="form-group" className="tunnit1">
-            <Col>
-              {/**Voiko valita usean?*/}
-              <Form.Check
-                inline
-                label="Määräaikainen vaihtoehto"
-                type="checkbox"
-                id="Määräaikainen vaihtoehto"
-                onChange={handleChangeCheck1}
-              />
-              <Form.Check
-                inline
-                label="Toistaiseksi voimassa oleva"
-                type="checkbox"
-                id="Toistaiseksi voimassa oleva"
-                onChange={handleChangeCheck2}
-              />
-              <Form.Check
-                inline
-                label="Tarvittaessa töihin kutsuttava"
-                type="checkbox"
-                id="Tarvittaessa töihin kutsuttava"
-                onChange={handleChangeCheck3}
-              />
-            </Col>
-          </Form.Row>
+        <Form.Row className="form-group" className="tunnit1">
+          <Col>
+            {/**Voiko valita usean?*/}
+            <Form.Check
+              inline
+              label="Määräaikainen vaihtoehto"
+              type="checkbox"
+              id="Määräaikainen vaihtoehto"
+              onChange={handleChangeCheck1}
+            />
+            <Form.Check
+              inline
+              label="Toistaiseksi voimassa oleva"
+              type="checkbox"
+              id="Toistaiseksi voimassa oleva"
+              onChange={handleChangeCheck2}
+            />
+            <Form.Check
+              inline
+              label="Tarvittaessa töihin kutsuttava"
+              type="checkbox"
+              id="Tarvittaessa töihin kutsuttava"
+              onChange={handleChangeCheck3}
+            />
+          </Col>
+        </Form.Row>
         <div className="form-group"></div>
         <div>
-          <label>
-            Työsopimuksen kesto
-          </label>
+          <label>Työsopimuksen kesto</label>
         </div>
 
         <div className="form-group"></div>
@@ -213,11 +199,21 @@ const handleDateChange2 = (event) => {
         <div className="date">
           <div>
             <Form.Label>Työ alkaa</Form.Label>
-            <Form.Control type="date" name="pvm" onChange={handleDateChange1} id="startDate" />
+            <Form.Control
+              type="date"
+              name="pvm"
+              onChange={handleDateChange1}
+              id="startDate"
+            />
           </div>
           <div>
             <Form.Label>Työ päättyy</Form.Label>
-            <Form.Control type="date" name="pvm" onChange={handleDateChange2} id="endDate"/>
+            <Form.Control
+              type="date"
+              name="pvm"
+              onChange={handleDateChange2}
+              id="endDate"
+            />
           </div>
         </div>
 
@@ -240,103 +236,120 @@ const handleDateChange2 = (event) => {
           </div>
         </formi>
  */}
-      <Form.Row> 
-        <Form.Label>Tuntien määrä / viikko</Form.Label>
-        <Form.Control as="textarea" rows={1}  onChange={handleChangeField1}/>
-      </Form.Row>
+        <Form.Row>
+          <Form.Label>Tuntien määrä / viikko</Form.Label>
+          <Form.Control as="textarea" rows={1} onChange={handleChangeField1} />
+        </Form.Row>
 
- 
-     
-  
- <div className="form-group"></div>
+        <div className="form-group"></div>
 
-      
-          <label>
-            Työaika
-          </label>
-          <br></br>
-       
+        <label>Työaika</label>
+        <br></br>
 
-          <Form.Row className="form-group" className="tunnit1">
-            <Col>
-              <Form.Check
-                inline
-                label="Osa-aikainen"
-                type="checkbox"
-                id="Osa-aikainen"
-                onChange={handleChangeCheck4}
-              />
-              <Form.Check
-                inline
-                label="Kokoaikainen"
-                type="checkbox"
-                id="Kokoaikainen"
-                onChange={handleChangeCheck5}
-              />
-            
-            </Col>
-          </Form.Row>
-  
+        <Form.Row className="form-group" className="tunnit1">
+          <Col>
+            <Form.Check
+              inline
+              label="Osa-aikainen"
+              type="checkbox"
+              id="Osa-aikainen"
+              onChange={handleChangeCheck4}
+            />
+            <Form.Check
+              inline
+              label="Kokoaikainen"
+              type="checkbox"
+              id="Kokoaikainen"
+              onChange={handleChangeCheck5}
+            />
+          </Col>
+        </Form.Row>
 
         <div className="form-group"></div>
 
         <Form.Group>
           <Form.Label>Palkka-asiat</Form.Label>
-          <Button variant="success" onClick={handleShow1}>Vinkki</Button>
+          <Button variant="success" onClick={handleShow1}>
+            Vinkki
+          </Button>
           <Modal show={show1} onHide={handleClose1}>
             <Modal.Header closeButton>
               <Modal.Title>Palkka</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            <p> Esimerkiksi:<br />
-            – palkan määräytyminen<br />
-            – palkka ja palkanmaksu<br />
-            – lisät, sairausajan palkka<br />
-            – loma-ajan palkka, lomaraha ja -korvaukset<br />
-            – verokortti<br />
-            – luontaisedut<br />
-            – matkakulut
-            </p>
+              <p>
+                {" "}
+                Esimerkiksi:
+                <br />
+                – palkan määräytyminen
+                <br />
+                – palkka ja palkanmaksu
+                <br />
+                – lisät, sairausajan palkka
+                <br />
+                – loma-ajan palkka, lomaraha ja -korvaukset
+                <br />
+                – verokortti
+                <br />
+                – luontaisedut
+                <br />– matkakulut
+              </p>
             </Modal.Body>
           </Modal>
-          <Form.Control as="textarea" rows={6}  onChange={handleChangeField2}/>
+          <Form.Control as="textarea" rows={6} onChange={handleChangeField2} />
         </Form.Group>
 
         <Form.Group>
           <Form.Label>Työsuhteen päättyminen</Form.Label>
-          <Button variant="success" onClick={handleShow2}>Vinkki</Button>
+          <Button variant="success" onClick={handleShow2}>
+            Vinkki
+          </Button>
           <Modal show={show2} onHide={handleClose2}>
             <Modal.Header closeButton>
               <Modal.Title>Työsuhteen päättyminen</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            <p> Esimerkiksi:<br />
-            – irtisanomisaika<br />
-            – vuosilomakorvaus<br />
-            – lopputilin maksaminen<br />
-            – työtodistus<br />
-            </p>
+              <p>
+                {" "}
+                Esimerkiksi:
+                <br />
+                – irtisanomisaika
+                <br />
+                – vuosilomakorvaus
+                <br />
+                – lopputilin maksaminen
+                <br />
+                – työtodistus
+                <br />
+              </p>
             </Modal.Body>
           </Modal>
-          <Form.Control as="textarea" rows={6}  onChange={handleChangeField3}/>
+          <Form.Control as="textarea" rows={6} onChange={handleChangeField3} />
         </Form.Group>
 
         <Form.Group>
           <Form.Label>Työterveyshuolto</Form.Label>
-          <Button variant="success" onClick={handleShow3}>Vinkki</Button>
+          <Button variant="success" onClick={handleShow3}>
+            Vinkki
+          </Button>
           <Modal show={show3} onHide={handleClose3}>
             <Modal.Header closeButton>
               <Modal.Title>Työterveyshuolto</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-            <p> Esimerkiksi:<br />
-            - työterveyshuollon palvelut, työhöntulotarkastus<br />
-            – työpaikkaselvitys<br />
-            – terveystarkastukset erityistä sairastumisen vaaraa aiheuttavat työt
-            </p>
+              <p>
+                {" "}
+                Esimerkiksi:
+                <br />
+                - työterveyshuollon palvelut, työhöntulotarkastus
+                <br />
+                – työpaikkaselvitys
+                <br />– terveystarkastukset erityistä sairastumisen vaaraa
+                aiheuttavat työt
+              </p>
             </Modal.Body>
           </Modal>
-          <Form.Control as="textarea" rows={6}  onChange={handleChangeField4}/>
+          <Form.Control as="textarea" rows={6} onChange={handleChangeField4} />
         </Form.Group>
         <br />
 
@@ -349,21 +362,16 @@ const handleDateChange2 = (event) => {
           </NavLink>
         </div>
 
-
-
-          <Form.Row>
-            <Col>
-              <Button variant="primary" type="submit">
-                {" "}
-                Submit{" "}
-              </Button>
-            </Col>
-          </Form.Row>
-   
+        <Form.Row>
+          <Col>
+            <Button variant="primary" type="submit">
+              {" "}
+              Submit{" "}
+            </Button>
+          </Col>
+        </Form.Row>
       </Form>
-
-</div>
-
+    </div>
   );
-}
+};
 export default Lomake2;

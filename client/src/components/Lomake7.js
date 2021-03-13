@@ -53,7 +53,6 @@ const Lomake7 = (props) => {
     //aiheuttaa mount errorin?
     setSubmitted(submitValues);
     call(submitValues);
-
   };
 
   //tallentaa kenttään kirjoitetun arvon

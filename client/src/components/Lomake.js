@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Col, Row, Form, Button, Container, Modal } from "react-bootstrap";
 import * as ReactBootstrap from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 // alustava lomake
 const Lomake = (props) => {
-
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
 
   const call = props.call;
   const tiedot = props.array;
@@ -32,7 +30,6 @@ const Lomake = (props) => {
   const [date1, setDate1] = useState("");
   const [date2, setDate2] = useState("");
 
-
   const submit = (event) => {
     event.preventDefault();
 
@@ -50,16 +47,16 @@ const Lomake = (props) => {
         työpaikan_katuosoite: field10,
         työpaikan_num: field11,
         työpaikan_sposti: field12,
-        työpaikan_kuvaus: field13,
+        kuvaus: field13,
+        alkupvm: date1,
+        loppupvm: date2,
       },
     ];
     //aiheuttaa mount errorin?
     setSubmitted(submitValues);
-    console.log(submitValues)
+    console.log(submitValues);
     call(submitValues);
-
   };
-
 
   const handleChangeField1 = (event) => {
     event.preventDefault();
@@ -81,7 +78,6 @@ const Lomake = (props) => {
     setField4(event.target.value);
   };
 
-
   const handleChangeField5 = (event) => {
     event.preventDefault();
     setField5(event.target.value);
@@ -101,7 +97,6 @@ const Lomake = (props) => {
     event.preventDefault();
     setField8(event.target.value);
   };
-
 
   const handleChangeField9 = (event) => {
     event.preventDefault();
@@ -123,152 +118,224 @@ const Lomake = (props) => {
     setField12(event.target.value);
   };
 
-
   const handleChangeField13 = (event) => {
     event.preventDefault();
     setField13(event.target.value);
   };
 
-
-
   const handleDateChange1 = (event) => {
-    const date =  document.getElementById("startDate");
-    setDate1(date.valueAsDate)
-    }
-    
-    const handleDateChange2 = (event) => {
-      const date =  document.getElementById("endDate");
-      setDate2(date.valueAsDate)
-      }
-      
+    const date = document.getElementById("startDate");
+    setDate1(date.valueAsDate);
+  };
 
-
+  const handleDateChange2 = (event) => {
+    const date = document.getElementById("endDate");
+    setDate2(date.valueAsDate);
+  };
 
   return (
     <div className="mx-auto my-2">
+      <div className="otsikko">
+        <h2>Perustiedot</h2>
+        <h6>Yrityksen ja työpaikan yhteystiedot.</h6>
+      </div>
 
-    <div className="otsikko">
-      <h2>Perustiedot</h2>
-      <h6>Yrityksen ja työpaikan yhteystiedot.</h6>
-    </div>
+      <hr />
 
-    <hr />
-
-    <Form onSubmit={submit}>
-
+      <Form onSubmit={submit}>
         <Row>
           <Col>
             <Form.Label>Perehdytettävä</Form.Label>
-            <Form.Control type="text" placeholder="Perehdytettävän nimi" onChange={handleChangeField1} id="Perehdytettävän nimi"/>
+            <Form.Control
+              type="text"
+              placeholder="Perehdytettävän nimi"
+              onChange={handleChangeField1}
+              id="Perehdytettävän nimi"
+            />
           </Col>
           <Col>
             <Form.Label>Perehdyttäjä</Form.Label>
-            <Form.Control type="text" placeholder="Perehdyttäjän nimi" onChange={handleChangeField2} id="Perehdyttäjän nimi" />
+            <Form.Control
+              type="text"
+              placeholder="Perehdyttäjän nimi"
+              onChange={handleChangeField2}
+              id="Perehdyttäjän nimi"
+            />
           </Col>
         </Row>
 
         <Row>
-            <Col>
+          <Col>
             <Form.Label>Perehdytys alkaa</Form.Label>
-            <Form.Control type="date" name="pvm" onChange={handleDateChange1} id="startDate"/>
-            </Col>
-            <Col>
+            <Form.Control
+              type="date"
+              name="pvm"
+              onChange={handleDateChange1}
+              id="startDate"
+            />
+          </Col>
+          <Col>
             <Form.Label>Perehdytys päättyy</Form.Label>
-            <Form.Control type="date" name="pvm" onChange={handleDateChange2} id="endDate"/>
+            <Form.Control
+              type="date"
+              name="pvm"
+              onChange={handleDateChange2}
+              id="endDate"
+            />
           </Col>
         </Row>
 
-    <hr />
+        <hr />
 
         <Row>
           <Col>
-            <Form.Label>Yrityksen nimi, osoite, puhelinnumero, faksi, sähköposti, verkkosivut</Form.Label>
+            <Form.Label>
+              Yrityksen nimi, osoite, puhelinnumero, faksi, sähköposti,
+              verkkosivut
+            </Form.Label>
           </Col>
           <Col>
-          <Form.Label>Työpaikan nimi, osoite, puhelinnumero, sähköposti</Form.Label>
+            <Form.Label>
+              Työpaikan nimi, osoite, puhelinnumero, sähköposti
+            </Form.Label>
           </Col>
-        </Row>
-
-        <Row>
-          <Col>
-          <Form.Group>
-            <Form.Control type="text" placeholder="Yrityksen nimi" onChange={handleChangeField3} id="Yrityksen nimi"/>
-            <Form.Control type="text" placeholder="Yrityksen katuosoite" onChange={handleChangeField4} id="Yrityksen katuosoite"/>
-            <Form.Control type="text" placeholder="Yrityksen puhelinnumero" onChange={handleChangeField5} id="Yrityksen puhelinnumero"/>
-            <Form.Control type="text" placeholder="Yrityksen faksi" onChange={handleChangeField6} id="Yrityksen faksi"/>
-            <Form.Control type="text" placeholder="Yrityksen sähköposti" onChange={handleChangeField7} id="Yrityksen sähköposti"/>
-            <Form.Control type="text" placeholder="Yrityksen verkkosivut" onChange={handleChangeField8} id="Yrityksen verkkosivut"/>
-          </Form.Group>
-          </Col>
-
-          <Col>
-            <Form.Control type="text" placeholder="Työpaikan nimi" onChange={handleChangeField9} id="Työpaikan nimi"/>
-            <Form.Control type="text" placeholder="Työpaikan katuosoite" onChange={handleChangeField10} id="Työpaikan katuosoite"/>
-            <Form.Control type="text" placeholder="Työpaikan puhelinnumero" onChange={handleChangeField11} id="Työpaikan puhelinnumero"/>
-            <Form.Control type="text" placeholder="Työpaikan sähköposti" onChange={handleChangeField12} id="Työpaikan sähköposti" />
-          </Col>
-
         </Row>
 
         <Row>
           <Col>
-          <Form.Label>Yrityksen Logo</Form.Label>
-          <Form.File id="logo" label="Valitse yrityksen logo..." custom />
+            <Form.Group>
+              <Form.Control
+                type="text"
+                placeholder="Yrityksen nimi"
+                onChange={handleChangeField3}
+                id="Yrityksen nimi"
+              />
+              <Form.Control
+                type="text"
+                placeholder="Yrityksen katuosoite"
+                onChange={handleChangeField4}
+                id="Yrityksen katuosoite"
+              />
+              <Form.Control
+                type="text"
+                placeholder="Yrityksen puhelinnumero"
+                onChange={handleChangeField5}
+                id="Yrityksen puhelinnumero"
+              />
+              <Form.Control
+                type="text"
+                placeholder="Yrityksen faksi"
+                onChange={handleChangeField6}
+                id="Yrityksen faksi"
+              />
+              <Form.Control
+                type="text"
+                placeholder="Yrityksen sähköposti"
+                onChange={handleChangeField7}
+                id="Yrityksen sähköposti"
+              />
+              <Form.Control
+                type="text"
+                placeholder="Yrityksen verkkosivut"
+                onChange={handleChangeField8}
+                id="Yrityksen verkkosivut"
+              />
+            </Form.Group>
+          </Col>
 
+          <Col>
+            <Form.Control
+              type="text"
+              placeholder="Työpaikan nimi"
+              onChange={handleChangeField9}
+              id="Työpaikan nimi"
+            />
+            <Form.Control
+              type="text"
+              placeholder="Työpaikan katuosoite"
+              onChange={handleChangeField10}
+              id="Työpaikan katuosoite"
+            />
+            <Form.Control
+              type="text"
+              placeholder="Työpaikan puhelinnumero"
+              onChange={handleChangeField11}
+              id="Työpaikan puhelinnumero"
+            />
+            <Form.Control
+              type="text"
+              placeholder="Työpaikan sähköposti"
+              onChange={handleChangeField12}
+              id="Työpaikan sähköposti"
+            />
+          </Col>
+        </Row>
 
+        <Row>
+          <Col>
+            <Form.Label>Yrityksen Logo</Form.Label>
+            <Form.File id="logo" label="Valitse yrityksen logo..." custom />
 
-          <Form.Label>Yrityksen kuvaus</Form.Label>
-          <Button variant="primary" onClick={handleShow}>Vinkki</Button>
+            <Form.Label>Yrityksen kuvaus</Form.Label>
+            <Button variant="primary" onClick={handleShow}>
+              Vinkki
+            </Button>
 
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Yrityksen kuvaus</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <p>
-              Mitä toivot uuden ihmisen tietävän yhtiöstä ja mitä ehdottomasti pitää sisäistää?
-              </p>
-              <p>
-              Esimerkiksi:<br />
-              – yrityksen toiminta-ajatus, liike- ja palveluidea<br />
-              – yrityksen omistussuhteet<br />
-              – asiakkaat ja heidän odotuksensa<br />
-              – lisätietoa yrityksestä (esitteet, Internet, intranet jne.)<br />
-              – kilpailijat
-              </p>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="primary" onClick={handleClose}>
-                Sulje
-              </Button>
-            </Modal.Footer>
-          </Modal>
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Yrityksen kuvaus</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <p>
+                  Mitä toivot uuden ihmisen tietävän yhtiöstä ja mitä
+                  ehdottomasti pitää sisäistää?
+                </p>
+                <p>
+                  Esimerkiksi:
+                  <br />
+                  – yrityksen toiminta-ajatus, liike- ja palveluidea
+                  <br />
+                  – yrityksen omistussuhteet
+                  <br />
+                  – asiakkaat ja heidän odotuksensa
+                  <br />
+                  – lisätietoa yrityksestä (esitteet, Internet, intranet jne.)
+                  <br />– kilpailijat
+                </p>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="primary" onClick={handleClose}>
+                  Sulje
+                </Button>
+              </Modal.Footer>
+            </Modal>
 
-          <Form.Control as="textarea" rows={6} onChange={handleChangeField13} id="Yrityksen kuvaus"/>
+            <Form.Control
+              as="textarea"
+              rows={6}
+              onChange={handleChangeField13}
+              id="Yrityksen kuvaus"
+            />
           </Col>
         </Row>
 
         <Form.Row>
-            <Col>
-              <Button variant="primary" type="submit">
-                {" "}
-                Submit{" "}
-              </Button>
-            </Col>
-          </Form.Row>
+          <Col>
+            <Button variant="primary" type="submit">
+              {" "}
+              Submit{" "}
+            </Button>
+          </Col>
+        </Form.Row>
 
-
-          <div className="links">
-
+        <div className="links">
           <NavLink to="uusilomake2">
             <Button variant="success">Seuraava</Button>
           </NavLink>
         </div>
-   
       </Form>
-
     </div>
-  )
-}
+  );
+};
 
 export default Lomake;

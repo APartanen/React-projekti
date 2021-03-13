@@ -18,12 +18,12 @@ const Lomake4 = (props) => {
 
     const submitValues = [
       {
-        kenttä1: field1,
-        kenttä2: field2,
-        kenttä3: field3,
-        kenttä4: field4,
-        kenttä5: field5,
-        kenttä6: field6,
+        aineisto: field1,
+        keskustelut: field2,
+        koulutus: field3,
+        ilmoitukset: field4,
+        tes: field5,
+        kirjallisuus: field6,
       },
     ];
     //aiheuttaa mount errorin?

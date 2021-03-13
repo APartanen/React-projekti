@@ -14,15 +14,10 @@ import Lomake9 from "./Lomake9";
 import PdfCreator from "./PdfCreator";
 import { useState } from "react";
 
-
-
-
-
 export default function Uusilomake() {
-
   const [tiedot, setTiedot] = useState([
     {
-      kenttä1: "fieldfdfdf1",
+      kenttä1: "field1",
       kenttä2: "field2",
       kenttä3: "field3",
       kenttä4: "field4",
@@ -30,50 +25,170 @@ export default function Uusilomake() {
       box2: "check2",
       box3: "check3",
       box4: "check4",
-      textarea: "textarea"
+      textarea: "textarea",
     },
   ]);
 
-console.log(tiedot)
+  const [tiedot1, setTiedot1] = useState([
+    {
+      perehdytettävä: "?",
+      perehdyttäjä: "?",
+      yrityksen_nimi: "?",
+      yrityksen_osoite: "?",
+      yrityksen_num: "?",
+      yrityksen_faksi: "?",
+      yrityksen_sposti: "?",
+      yrityksen_verkko: "?",
+      työpaikan_nimi: "?",
+      työpaikan_katuosoite: "?",
+      työpaikan_num: "?",
+      työpaikan_sposti: "?",
+      kuvaus: "?",
+      alkupvm: "?",
+      loppupvm: "?",
+    },
+  ]);
+
+  const [tiedot2, setTiedot2] = useState([
+    {
+      kenttä1: "?",
+      kenttä2: "?",
+    },
+  ]);
+
+  const [tiedot3, setTiedot3] = useState([
+    {
+      tunnit: "?",
+      palkka: "?",
+      työsuhde: "?",
+      työterveys: "?",
+      box1: "?",
+      box2: "?",
+      box3: "?",
+      box4: "?",
+      box5: "?",
+      alkupvm: "?",
+      loppupvm: "?",
+    },
+  ]);
+
+  const [tiedot4, setTiedot4] = useState([
+    {
+      työpaikan_tilat: "?",
+      Turvallisuusasiat: "?",
+    },
+  ]);
+
+  const [tiedot5, setTiedot5] = useState([
+    {
+      nimike: "?",
+      tehtävat: "?",
+      suunnittelu: "?",
+      merkitys: "?",
+      työvalineet: "?",
+      ergonomia: "?",
+      elpyminen: "?",
+      kehitys: "?",
+      viat: "?",
+      muutTilat: "?",
+      lisätiedot: "?",
+    },
+  ]);
+
+  const [tiedot6, setTiedot6] = useState([
+    {
+      aineisto: "?",
+      keskustelut: "?",
+      koulutus: "?",
+      ilmoitukset: "?",
+      tes: "?",
+      kirjallisuus: "?",
+    },
+  ]);
+
+  const [tiedot7, setTiedot7] = useState([
+    {
+      virkistys: "?",
+      työkyky: "?",
+      vakuutus: "?",
+      henkilöstoedut: "?",
+      asuminen: "?",
+    },
+  ]);
+
+  const [tiedot8, setTiedot8] = useState([
+    {
+      muut: "?",
+      perehSuunnitelma: "?",
+      nimi: "?",
+      sposti: "?",
+      puh: "?",
+      salasana1: "?",
+      salasana2: "?",
+      box1: "?",
+      box2: "?",
+      box3: "?",
+      box4: "?",
+      box5: "?",
+      box6: "?",
+      box7: "?",
+      box8: "?",
+    },
+  ]);
+
+  const [kaikkitiedot, setKaikkitiedot] = useState([
+    {
+      tiedot1: tiedot1,
+      tiedot2: tiedot2,
+      tiedot3: tiedot3,
+      tiedot4: tiedot4,
+      tiedot5: tiedot5,
+      tiedot6: tiedot6,
+      tiedot7: tiedot7,
+      tiedot8: tiedot8,
+    },
+  ]);
+
+  console.log(kaikkitiedot);
 
   const PdfSivu = (props) => {
-    return <PdfCreator call= {setTiedot} array={tiedot} />;
+    return <PdfCreator call={setTiedot} array={tiedot} />;
   };
 
   const testiLomake = (props) => {
-    return <Lomake7 call= {setTiedot} array={tiedot} />;
+    return <Lomake7 call={setTiedot} array={tiedot} />;
   };
 
   const perusTiedot = (props) => {
-    return <Lomake call= {setTiedot} array={tiedot} />;
+    return <Lomake call={setTiedot1} array={tiedot1} />;
   };
 
   const organisaatio = (props) => {
-    return <Lomake1 call= {setTiedot} array={tiedot} />;
+    return <Lomake1 call={setTiedot2} array={tiedot2} />;
   };
 
   const tyosopimus = (props) => {
-    return <Lomake2 call= {setTiedot} array={tiedot} />;
+    return <Lomake2 call={setTiedot3} array={tiedot3} />;
   };
 
   const tyoymparisto = (props) => {
-    return <Lomake9 call= {setTiedot} array={tiedot} />;
+    return <Lomake9 call={setTiedot4} array={tiedot4} />;
   };
 
   const tyotehtavat = (props) => {
-    return <Lomake3 call= {setTiedot} array={tiedot} />;
+    return <Lomake3 call={setTiedot5} array={tiedot5} />;
   };
 
   const tehtavaanHaku = (props) => {
-    return <Lomake4 call= {setTiedot} array={tiedot} />;
+    return <Lomake4 call={setTiedot6} array={tiedot6} />;
   };
 
   const muuta = (props) => {
-    return <Lomake5 call= {setTiedot} array={tiedot} />;
+    return <Lomake5 call={setTiedot7} array={tiedot7} />;
   };
 
   const viimeistely = (props) => {
-    return <Lomake6 call= {setTiedot} array={tiedot} />;
+    return <Lomake6 call={setTiedot8} array={tiedot8} />;
   };
 
   return (
@@ -89,7 +204,7 @@ console.log(tiedot)
           <Route path="/uusilomake6" component={tehtavaanHaku} />
           <Route path="/uusilomake7" component={muuta} />
           <Route path="/uusilomake8" component={viimeistely} />
-          <Route path="/uusilomake11" component={testiLomake}/>
+          <Route path="/uusilomake11" component={testiLomake} />
           <Route path="/uusilomake9" component={PdfSivu} />
           <Route path="/uusilomake10" component={Lomake8} />
         </Switch>

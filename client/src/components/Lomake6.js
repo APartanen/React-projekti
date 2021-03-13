@@ -50,13 +50,13 @@ const Lomake6 = (props) => {
 
     const submitValues = [
       {
-        kenttä1: field1,
-        kenttä2: field2,
-        kenttä3: field3,
-        kenttä4: field4,
-        kenttä5: field5,
-        kenttä6: field6,
-        kenttä7: field7,
+        muut: field1,
+        perehSuunnitelma: field2,
+        nimi: field3,
+        sposti: field4,
+        puh: field5,
+        salasana1: field6,
+        salasana2: field7,
         box1: check1,
         box2: check2,
         box3: check3,
