@@ -1,13 +1,14 @@
 
 import React, { useState } from 'react';
-import {Form, FormGroup, FormLabel, FormControl, FormText, Button, Modal, Col} from 'react-bootstrap';
+import { Form, FormGroup, FormLabel, FormControl, FormText, Button, Modal, Col } from 'react-bootstrap';
 import '../App.css';
 import { NavLink } from "react-router-dom";
+import ReactPlayer from 'react-player';
 
 const Lomake1 = (props) => {
 
 
-  
+
   const call = props.call;
   const tiedot = props.array;
 
@@ -29,7 +30,7 @@ const Lomake1 = (props) => {
       {
         kenttä1: field1,
         kenttä2: field2,
- 
+
 
       },
     ];
@@ -50,26 +51,26 @@ const Lomake1 = (props) => {
     setField2(event.target.value);
   };
 
- 
+
 
   return (
-      <div className="Lomake1">
+    <div className="Lomake1">
 
       <div className="otsikko">
         <h2>Yrityksen organisaatio ja toimintatavat</h2>
         <h6>Yrityksen organisaatio ja henkilöstö sekä toimintatavat yrityksessä.</h6>
       </div>
 
-      <Form  onSubmit={submit}>
+      <Form onSubmit={submit}>
 
-          <Form.Group>
-            <Form.Label>Yrityksen organisaatio ja henkilöstö</Form.Label>
-            <Button variant="success" onClick={handleShow1}>Vinkki</Button>
-            <Modal show={show1} onHide={handleClose1}>
-              <Modal.Header closeButton>
-                <Modal.Title>Yrityksen organisaatio ja henkilöstö</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
+        <Form.Group>
+          <Form.Label>Yrityksen organisaatio ja henkilöstö</Form.Label>
+          <Button variant="success" onClick={handleShow1}>Vinkki</Button>
+          <Modal show={show1} onHide={handleClose1}>
+            <Modal.Header closeButton>
+              <Modal.Title>Yrityksen organisaatio ja henkilöstö</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
               <p> Esimerkiksi:<br />
               – organisaatio ja toimipisteet<br />
               – johto, esimiehet, henkilöstö<br />
@@ -81,25 +82,25 @@ const Lomake1 = (props) => {
               - työsuojeluvaltuutettu<br />
               – aloitetoimikunta
               </p>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="primary" onClick={handleClose1}>
-                  Sulje
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="primary" onClick={handleClose1}>
+                Sulje
                 </Button>
-              </Modal.Footer>
-            </Modal>
-            <Form.Control as="textarea" rows={6} onChange={handleChangeField1}/>
-          </Form.Group>
-          <br />
+            </Modal.Footer>
+          </Modal>
+          <Form.Control as="textarea" rows={6} onChange={handleChangeField1} />
+        </Form.Group>
+        <br />
 
-          <Form.Group>
-            <Form.Label>Toimintatavat yrityksessä</Form.Label>
-            <Button variant="success" onClick={handleShow2}>Vinkki</Button>
-            <Modal show={show2} onHide={handleClose2}>
-              <Modal.Header closeButton>
-                <Modal.Title>Toimintatavat yrityksessä</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
+        <Form.Group>
+          <Form.Label>Toimintatavat yrityksessä</Form.Label>
+          <Button variant="success" onClick={handleShow2}>Vinkki</Button>
+          <Modal show={show2} onHide={handleClose2}>
+            <Modal.Header closeButton>
+              <Modal.Title>Toimintatavat yrityksessä</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
               <p> Esimerkiksi:<br />
               – yrityksen arvot (mitkä ovat yrityksessä tärkeitä asioita?)<br />
               – mitä henkilöstöltä odotetaan?<br />
@@ -110,19 +111,29 @@ const Lomake1 = (props) => {
               – täsmällisyyden merkitys<br />
               – aloitetoiminta
               </p>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="primary" onClick={handleClose2}>
-                  Sulje
+              {/* placeholder video / demo videolle*/}
+              <div className='player-wrapper'>
+                <ReactPlayer
+                  className='react-player'
+                  controls={true}
+                  url='https://www.youtube.com/watch?v=Sdn8SNYyjxc'
+                  width='100%'
+                  height='100%'
+                />
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="primary" onClick={handleClose2}>
+                Sulje
                 </Button>
-              </Modal.Footer>
-            </Modal>
-            <Form.Control as="textarea" rows={6} onChange={handleChangeField2}/>
-          </Form.Group>
-          <br />
+            </Modal.Footer>
+          </Modal>
+          <Form.Control as="textarea" rows={6} onChange={handleChangeField2} />
+        </Form.Group>
+        <br />
 
 
-          <div className="links">
+        <div className="links">
           <NavLink to="uusilomake1">
             <Button variant="success">Edellinen</Button>
           </NavLink>
@@ -132,19 +143,19 @@ const Lomake1 = (props) => {
         </div>
 
 
-          <Form.Row>
-            <Col>
-              <Button variant="primary" type="submit">
-                {" "}
+        <Form.Row>
+          <Col>
+            <Button variant="primary" type="submit">
+              {" "}
                 Submit{" "}
-              </Button>
-            </Col>
-          </Form.Row>
+            </Button>
+          </Col>
+        </Form.Row>
 
-        </Form>
+      </Form>
 
-      </div>
-    )
-  }
+    </div>
+  )
+}
 
 export default Lomake1;
