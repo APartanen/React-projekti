@@ -8,7 +8,7 @@ const Lomake4 = (props) => {
 
   let kaikki = props.kaikki;
   const kaikkiCall = props.kaikkiCall;
-  
+
   const [submitted, setSubmitted] = useState([]);
   const [field1, setField1] = useState("");
   const [field2, setField2] = useState("");
@@ -30,15 +30,15 @@ const Lomake4 = (props) => {
         kirjallisuus: field6,
       },
     ];
-       //päivittää kaikkitiedot arrayn kohdan tiedot1 
-       kaikki[4] = submitValues;
+    //päivittää kaikkitiedot arrayn kohdan tiedot1
+    kaikki[5] = submitValues;
 
-       //ignore 
-       setSubmitted(submitValues);
-       call(submitValues);
-   
-       //setKaikkitiedot kutsu - kopio kaikki tiedot kohdalla, missä on muokattu arrayn kohtaa, muut jätetty rauhaan
-       kaikkiCall(kaikki)
+    //ignore
+    setSubmitted(submitValues);
+    call(submitValues);
+
+    //setKaikkitiedot kutsu - kopio kaikki tiedot kohdalla, missä on muokattu arrayn kohtaa, muut jätetty rauhaan
+    kaikkiCall(kaikki);
   };
 
   const handleChangeField1 = (event) => {
@@ -113,6 +113,10 @@ const Lomake4 = (props) => {
           <Form.Label>Ammattikirjallisuus ja -lehdet</Form.Label>
           <Form.Control as="textarea" rows={2} onChange={handleChangeField6} />
         </Form.Group>
+        <Button variant="primary" type="submit" onClick={submit}>
+          {" "}
+          Submit{" "}
+        </Button>
         <br />
         <div className="links">
           <NavLink to="uusilomake5">
