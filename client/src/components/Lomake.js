@@ -3,7 +3,6 @@ import { Col, Row, Form, Button, Container, Modal } from "react-bootstrap";
 import * as ReactBootstrap from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
-
 // alustava lomake
 const Lomake = (props) => {
   const [show, setShow] = useState(false);
@@ -15,8 +14,8 @@ const Lomake = (props) => {
 
   let kaikki = props.kaikki;
   const kaikkiCall = props.kaikkiCall;
- 
- 
+
+  console.log(kaikki);
 
   const [submitted, setSubmitted] = useState([]);
   const [field1, setField1] = useState("");
@@ -35,9 +34,6 @@ const Lomake = (props) => {
 
   const [date1, setDate1] = useState("");
   const [date2, setDate2] = useState("");
-
-
-
 
   const submit = (event) => {
     event.preventDefault();
@@ -62,19 +58,14 @@ const Lomake = (props) => {
       },
     ];
 
-    //päivittää kaikkitiedot arrayn kohdan tiedot1 
     kaikki[0] = submitValues;
-
-    //ignore 
+    //aiheuttaa mount errorin?
     setSubmitted(submitValues);
     call(submitValues);
 
-    //setKaikkitiedot kutsu - kopio kaikki tiedot kohdalla, missä on muokattu arrayn kohtaa, muut jätetty rauhaan
-    kaikkiCall(kaikki)
-  
+    kaikkiCall(kaikki);
 
-
-
+    //console.log(tiedot);
   };
 
   const handleChangeField1 = (event) => {
@@ -338,15 +329,21 @@ const Lomake = (props) => {
           </Col>
         </Row>
 
-      
+        <Form.Row>
+          <Col>
+            <Button variant="primary" type="submit">
+              {" "}
+              Submit{" "}
+            </Button>
+          </Col>
+        </Form.Row>
 
         <div className="links">
           <NavLink to="uusilomake2">
-            <Button variant="primary" type="submit">Seuraava</Button>
+            <Button variant="success">Seuraava</Button>
           </NavLink>
         </div>
       </Form>
-
     </div>
   );
 };
