@@ -21,6 +21,9 @@ const styles = {
 const Lomake7 = (props) => {
   const call = props.call;
   const tiedot = props.array;
+  let kaikki = props.kaikki;
+  const kaikkiCall = props.kaikkiCall;
+ 
 
   const [submitted, setSubmitted] = useState([]);
   const [field1, setField1] = useState("");
@@ -50,9 +53,15 @@ const Lomake7 = (props) => {
         textarea1: textarea,
       },
     ];
-    //aiheuttaa mount errorin?
-    setSubmitted(submitValues);
-    call(submitValues);
+      //päivittää kaikkitiedot arrayn kohdan tiedot1 
+      kaikki[7] = submitValues;
+
+      //ignore 
+      setSubmitted(submitValues);
+      call(submitValues);
+  
+      //setKaikkitiedot kutsu - kopio kaikki tiedot kohdalla, missä on muokattu arrayn kohtaa, muut jätetty rauhaan
+      kaikkiCall(kaikki)
   };
 
   //tallentaa kenttään kirjoitetun arvon

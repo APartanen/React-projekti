@@ -24,6 +24,8 @@ const MyDocument = () => (
 const PdfCreator = (props) => {
   const tiedot = props.array;
 
+  console.log(tiedot);
+
   const [field1, setField1] = useState("");
 
   //("Nappi: ", this.state.teksti)}>

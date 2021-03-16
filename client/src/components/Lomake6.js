@@ -27,7 +27,11 @@ const Lomake6 = (props) => {
 
   const call = props.call;
   const tiedot = props.array;
+  let kaikki = props.kaikki;
+  const kaikkiCall = props.kaikkiCall;
+ 
 
+  const [submitted, setSubmitted] = useState([]);
   const [check1, setCheck1] = useState("");
   const [check2, setCheck2] = useState("");
   const [check3, setCheck3] = useState("");
@@ -67,9 +71,15 @@ const Lomake6 = (props) => {
         box8: check8,
       },
     ];
-    //aiheuttaa mount errorin?
-    call(tiedot.concat(submitValues));
-    console.log(submitValues);
+        //päivittää kaikkitiedot arrayn kohdan tiedot1 
+        kaikki[6] = submitValues;
+
+        //ignore 
+        setSubmitted(submitValues);
+        call(submitValues);
+    
+        //setKaikkitiedot kutsu - kopio kaikki tiedot kohdalla, missä on muokattu arrayn kohtaa, muut jätetty rauhaan
+        kaikkiCall(kaikki)
   };
 
   const handleChangeCheck1 = (event) => {

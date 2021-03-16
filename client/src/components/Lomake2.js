@@ -52,6 +52,10 @@ const Lomake2 = (props) => {
   const [date1, setDate1] = useState("");
   const [date2, setDate2] = useState("");
 
+  let kaikki = props.kaikki;
+  const kaikkiCall = props.kaikkiCall;
+ 
+
   const submit = (event) => {
     event.preventDefault();
 
@@ -70,9 +74,16 @@ const Lomake2 = (props) => {
         loppupvm: date2,
       },
     ];
-    //aiheuttaa mount errorin?
-    setSubmitted(submitValues);
-    call(submitValues);
+
+       //päivittää kaikkitiedot arrayn kohdan tiedot1 
+       kaikki[2] = submitValues;
+
+       //ignore 
+       setSubmitted(submitValues);
+       call(submitValues);
+   
+       //setKaikkitiedot kutsu - kopio kaikki tiedot kohdalla, missä on muokattu arrayn kohtaa, muut jätetty rauhaan
+       kaikkiCall(kaikki)
   };
 
   const handleChangeField1 = (event) => {

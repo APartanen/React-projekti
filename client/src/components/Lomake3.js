@@ -19,6 +19,11 @@ const Lomake3 = (props) => {
   const call = props.call;
   const tiedot = props.array;
 
+  let kaikki = props.kaikki;
+  const kaikkiCall = props.kaikkiCall;
+ 
+
+  const [submitted, setSubmitted] = useState([]);
   const [field1, setField1] = useState("");
   const [field2, setField2] = useState("");
   const [field3, setField3] = useState("");
@@ -49,9 +54,16 @@ const Lomake3 = (props) => {
         lisätiedot: field11,
       },
     ];
-    //aiheuttaa mount errorin?
-    call(tiedot.concat(submitValues));
-    console.log("lomake3", submitValues);
+       //päivittää kaikkitiedot arrayn kohdan tiedot1 
+       kaikki[3] = submitValues;
+
+       //ignore 
+       setSubmitted(submitValues);
+       call(submitValues);
+   
+       //setKaikkitiedot kutsu - kopio kaikki tiedot kohdalla, missä on muokattu arrayn kohtaa, muut jätetty rauhaan
+       kaikkiCall(kaikki)
+     
   };
 
   const handleChangeField1 = (event) => {
