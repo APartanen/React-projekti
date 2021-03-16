@@ -29,7 +29,6 @@ const Lomake6 = (props) => {
   const tiedot = props.array;
   let kaikki = props.kaikki;
   const kaikkiCall = props.kaikkiCall;
- 
 
   const [submitted, setSubmitted] = useState([]);
   const [check1, setCheck1] = useState("");
@@ -71,15 +70,15 @@ const Lomake6 = (props) => {
         box8: check8,
       },
     ];
-        //päivittää kaikkitiedot arrayn kohdan tiedot1 
-        kaikki[6] = submitValues;
+    //päivittää kaikkitiedot arrayn kohdan tiedot1
+    kaikki[7] = submitValues;
 
-        //ignore 
-        setSubmitted(submitValues);
-        call(submitValues);
-    
-        //setKaikkitiedot kutsu - kopio kaikki tiedot kohdalla, missä on muokattu arrayn kohtaa, muut jätetty rauhaan
-        kaikkiCall(kaikki)
+    //ignore
+    setSubmitted(submitValues);
+    call(submitValues);
+
+    //setKaikkitiedot kutsu - kopio kaikki tiedot kohdalla, missä on muokattu arrayn kohtaa, muut jätetty rauhaan
+    kaikkiCall(kaikki);
   };
 
   const handleChangeCheck1 = (event) => {
