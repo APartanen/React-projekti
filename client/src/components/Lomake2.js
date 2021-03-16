@@ -54,7 +54,6 @@ const Lomake2 = (props) => {
 
   let kaikki = props.kaikki;
   const kaikkiCall = props.kaikkiCall;
- 
 
   const submit = (event) => {
     event.preventDefault();
@@ -75,15 +74,15 @@ const Lomake2 = (props) => {
       },
     ];
 
-       //päivittää kaikkitiedot arrayn kohdan tiedot1 
-       kaikki[2] = submitValues;
+    //päivittää kaikkitiedot arrayn kohdan tiedot1
+    kaikki[2] = submitValues;
 
-       //ignore 
-       setSubmitted(submitValues);
-       call(submitValues);
-   
-       //setKaikkitiedot kutsu - kopio kaikki tiedot kohdalla, missä on muokattu arrayn kohtaa, muut jätetty rauhaan
-       kaikkiCall(kaikki)
+    //ignore
+    setSubmitted(submitValues);
+    call(submitValues);
+
+    //setKaikkitiedot kutsu - kopio kaikki tiedot kohdalla, missä on muokattu arrayn kohtaa, muut jätetty rauhaan
+    kaikkiCall(kaikki);
   };
 
   const handleChangeField1 = (event) => {
