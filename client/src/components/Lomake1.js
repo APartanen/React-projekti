@@ -13,6 +13,7 @@ import {
 import "../App.css";
 import { NavLink } from "react-router-dom";
 import ReactPlayer from "react-player";
+import { useHistory } from "react-router-dom";
 
 const Lomake1 = (props) => {
   const call = props.call;
@@ -31,6 +32,13 @@ const Lomake1 = (props) => {
   const [show2, setShow2] = useState(false);
   const handleClose2 = () => setShow2(false);
   const handleShow2 = () => setShow2(true);
+
+
+  const history = useHistory();
+  const submitAndNavigate = (e) => {
+    submit(e);
+    history.push('uusilomake3');
+  }
 
   const submit = (event) => {
     event.preventDefault();
@@ -172,18 +180,11 @@ const Lomake1 = (props) => {
             <Button variant="success">Edellinen</Button>
           </NavLink>
           <NavLink to="uusilomake3">
-            <Button variant="success">Seuraava</Button>
+            <Button variant="success" onClick={submitAndNavigate}>Seuraava</Button>
           </NavLink>
         </div>
 
-        <Form.Row>
-          <Col>
-            <Button variant="primary" type="submit">
-              {" "}
-              Submit{" "}
-            </Button>
-          </Col>
-        </Form.Row>
+    
       </Form>
     </div>
   );

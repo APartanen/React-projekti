@@ -3,6 +3,7 @@ import { Col, Row, Form, Button, Modal } from "react-bootstrap";
 import * as ReactBootstrap from "react-bootstrap";
 import { RiQuestionLine as Vinkki } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const styles = {
   grid: {
@@ -47,6 +48,13 @@ const Lomake6 = (props) => {
   const [field5, setField5] = useState("");
   const [field6, setField6] = useState("");
   const [field7, setField7] = useState("");
+
+  const history = useHistory();
+  const submitAndNavigate = (e) => {
+    submit(e);
+    history.push('uusilomake9');
+  }
+
 
   const submit = (event) => {
     event.preventDefault();
@@ -351,21 +359,13 @@ const Lomake6 = (props) => {
           </Modal>
         </div>
 
-        {/**tämän voi korvata esimerkiksi "seuraava" buttonilla */}
-        <Form.Row>
-          <Col>
-            <Button variant="primary" type="submit">
-              {" "}
-              Submit{" "}
-            </Button>
-          </Col>
-        </Form.Row>
+ 
         <div className="links">
           <NavLink to="uusilomake7">
             <Button variant="success">Edellinen</Button>
           </NavLink>
           <NavLink to="uusilomake9">
-            <Button variant="success">Seuraava</Button>
+            <Button variant="success" onClick={submitAndNavigate}>Seuraava</Button>
           </NavLink>
         </div>
       </Form>

@@ -1,6 +1,7 @@
 import { Col, Row, Form, Button } from "react-bootstrap";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const styles = {
   grid: {
@@ -21,8 +22,7 @@ const styles = {
 const Lomake7 = (props) => {
   const call = props.call;
   const tiedot = props.array;
-  let kaikki = props.kaikki;
-  const kaikkiCall = props.kaikkiCall;
+  
  
 
   const [submitted, setSubmitted] = useState([]);
@@ -36,7 +36,7 @@ const Lomake7 = (props) => {
   const [check4, setCheck4] = useState("");
   const [textarea, setTA] = useState("");
 
-  //mitä tapahtuu kun form submitataan
+
   const submit = (event) => {
     event.preventDefault();
 
@@ -53,15 +53,13 @@ const Lomake7 = (props) => {
         textarea1: textarea,
       },
     ];
-      //päivittää kaikkitiedot arrayn kohdan tiedot1 
-      kaikki[7] = submitValues;
+    
 
       //ignore 
       setSubmitted(submitValues);
       call(submitValues);
   
-      //setKaikkitiedot kutsu - kopio kaikki tiedot kohdalla, missä on muokattu arrayn kohtaa, muut jätetty rauhaan
-      kaikkiCall(kaikki)
+    
   };
 
   //tallentaa kenttään kirjoitetun arvon

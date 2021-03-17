@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import "../App.css";
 import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Lomake9 = (props) => {
   const [show1, setShow1] = useState(false);
@@ -29,6 +30,13 @@ const Lomake9 = (props) => {
   const [submitted, setSubmitted] = useState([]);
   const [field1, setField1] = useState("");
   const [field2, setField2] = useState("");
+
+  const history = useHistory();
+  const submitAndNavigate = (e) => {
+    submit(e);
+    history.push('uusilomake5');
+  }
+
 
   const submit = (event) => {
     event.preventDefault();
@@ -155,18 +163,11 @@ const Lomake9 = (props) => {
             <Button variant="success">Edellinen</Button>
           </NavLink>
           <NavLink to="uusilomake5">
-            <Button variant="success">Seuraava</Button>
+            <Button variant="success" onClick={submitAndNavigate}>Seuraava</Button>
           </NavLink>
         </div>
 
-        <Form.Row>
-          <Col>
-            <Button variant="primary" type="submit">
-              {" "}
-              Submit{" "}
-            </Button>
-          </Col>
-        </Form.Row>
+      
       </Form>
     </div>
   );

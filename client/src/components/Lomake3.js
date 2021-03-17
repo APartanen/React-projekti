@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import "../App.css";
 import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Lomake3 = (props) => {
   const [show, setShow] = useState(false);
@@ -34,6 +35,14 @@ const Lomake3 = (props) => {
   const [field9, setField9] = useState("");
   const [field10, setField10] = useState("");
   const [field11, setField11] = useState("");
+
+
+  const history = useHistory();
+  const submitAndNavigate = (e) => {
+    submit(e);
+    history.push('uusilomake6');
+  }
+
 
   const submit = (event) => {
     event.preventDefault();
@@ -201,17 +210,14 @@ const Lomake3 = (props) => {
           </Form.Label>
           <Form.Control as="textarea" rows={2} onChange={handleChangeField11} />
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={submit}>
-          {" "}
-          Submit{" "}
-        </Button>
+     
         <br />
         <div className="links">
           <NavLink to="uusilomake4">
             <Button variant="success">Edellinen</Button>
           </NavLink>
           <NavLink to="uusilomake6">
-            <Button variant="success">Seuraava</Button>
+            <Button variant="success" onClick={submitAndNavigate}>Seuraava</Button>
           </NavLink>
         </div>
       </Form>

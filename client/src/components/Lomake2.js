@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./Lomake2.css";
 import { Form, Dropdown, Modal, Button, Col } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const styles = {
   grid: {
@@ -54,6 +55,14 @@ const Lomake2 = (props) => {
 
   let kaikki = props.kaikki;
   const kaikkiCall = props.kaikkiCall;
+
+
+  const history = useHistory();
+  const submitAndNavigate = (e) => {
+    submit(e);
+    history.push('uusilomake4');
+  }
+
 
   const submit = (event) => {
     event.preventDefault();
@@ -368,18 +377,11 @@ const Lomake2 = (props) => {
             <Button variant="success">Edellinen</Button>
           </NavLink>
           <NavLink to="uusilomake4">
-            <Button variant="success">Seuraava</Button>
+            <Button variant="success" onClick={submitAndNavigate}>Seuraava</Button>
           </NavLink>
         </div>
 
-        <Form.Row>
-          <Col>
-            <Button variant="primary" type="submit">
-              {" "}
-              Submit{" "}
-            </Button>
-          </Col>
-        </Form.Row>
+
       </Form>
     </div>
   );

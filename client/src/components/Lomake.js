@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Col, Row, Form, Button, Container, Modal } from "react-bootstrap";
 import * as ReactBootstrap from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 // alustava lomake
 const Lomake = (props) => {
@@ -34,6 +35,12 @@ const Lomake = (props) => {
 
   const [date1, setDate1] = useState("");
   const [date2, setDate2] = useState("");
+
+  const history = useHistory();
+  const submitAndNavigate = (e) => {
+    submit(e);
+    history.push('uusilomake2');
+  }
 
   const submit = (event) => {
     event.preventDefault();
@@ -142,6 +149,9 @@ const Lomake = (props) => {
     const date = document.getElementById("endDate");
     setDate2(date.valueAsDate);
   };
+
+  
+
 
   return (
     <div className="mx-auto my-2">
@@ -287,7 +297,7 @@ const Lomake = (props) => {
             <Form.File id="logo" label="Valitse yrityksen logo..." custom />
 
             <Form.Label>Yrityksen kuvaus</Form.Label>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="success" onClick={handleShow}>
               Vinkki
             </Button>
 
@@ -314,7 +324,7 @@ const Lomake = (props) => {
                 </p>
               </Modal.Body>
               <Modal.Footer>
-                <Button variant="primary" onClick={handleClose}>
+                <Button variant="success" onClick={handleClose}>
                   Sulje
                 </Button>
               </Modal.Footer>
@@ -329,17 +339,10 @@ const Lomake = (props) => {
           </Col>
         </Row>
 
-        <Form.Row>
-          <Col>
-            <Button variant="primary" type="submit">
-              {" "}
-              Submit{" "}
-            </Button>
-          </Col>
-        </Form.Row>
+    
 
         <div className="links">
-          <NavLink to="uusilomake2">
+          <NavLink to="uusilomake2" onClick={submitAndNavigate}>
             <Button variant="success">Seuraava</Button>
           </NavLink>
         </div>
